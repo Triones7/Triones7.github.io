@@ -2,44 +2,69 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://triones7.github.io</id>
     <title>Gridea</title>
-    <updated>2021-03-04T15:02:53.631Z</updated>
+    <updated>2021-03-04T15:20:06.678Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://triones7.github.io"/>
     <link rel="self" href="https://triones7.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>记录、想法、生活</subtitle>
     <logo>https://triones7.github.io/images/avatar.png</logo>
     <icon>https://triones7.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
     <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://triones7.github.io/post/hello-gridea/</id>
-        <link href="https://triones7.github.io/post/hello-gridea/">
+        <title type="html"><![CDATA[分享——几何画板]]></title>
+        <id>https://triones7.github.io/post/fen-xiang-ji-he-hua-ban/</id>
+        <link href="https://triones7.github.io/post/fen-xiang-ji-he-hua-ban/">
         </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+        <updated>2020-02-11T15:06:52.000Z</updated>
+        <summary type="html"><![CDATA[<p>第一次做软件分享😄，快乐的打击思杰马克丁😎<br>
+...</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+        <content type="html"><![CDATA[<p>第一次做软件分享😄，快乐的打击思杰马克丁😎<br>
+...</p>
 <!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+<h3 id="起源-beginning">起源 Beginning</h3>
+<p>今天写数学的时候，突然不想画图了，就想找U盘，又因为太懒，不想下楼拿，于是就在网上想找找几何画板的下载链接。</p>
+<p>不找不知道，一找吓一跳(其实还真没吓一跳)，几何画板这种软件，找了3页的百度搜索结果，结果全是某马某克某丁的产品，唉。我最后翻了5，6页的度娘也没找到。我惊了。。。</p>
+<h2 id="重点-point">重点 Point</h2>
+<p>当然啦，重点是我有没有找到呢，当然不负所托，找到了！来自某反sjmkd组织，还有在当中找到的友情链接，不看不知道，一看吓一跳，网上居然有这么多反sjmkd的网站和个人。我当然也不能置身事外啦，今天就把几何画板贴出来，受益的是人民嘛。</p>
+<h5 id="ps如果您比较富有rich请支持正版">P.S.如果您比较富有Rich，请支持正版！</h5>
+<p>​		再注：请支持国外官方版本，不要支持某丁代理的垃圾！</p>
+<h5 id="ps这里贴出一个以上所题网站如果遇到某丁代理的不良软件请于这里下载">P.S.这里贴出一个以上所题网站，如果遇到某丁代理的不良软件，请于这里下载！</h5>
+<p>​		再注：因为此网站对某丁实在愤恨，其网址不宜在本站贴出，使用按钮转跳！</p>
+<p><a href="https://www.fxxkmakeding.xyz/">马克丁代理软件下载</a>{: .btn}</p>
+<h3 id="下载-download">下载 Download</h3>
+<p><strong>这里贴出<em>蓝奏云</em>的下载链接</strong>，博主找了一圈，实在找不到什么靠谱的网盘(城通，百度靠边站)，只能选蓝奏云了。。。</p>
+<p>点击下载(Click and Download)：<a href="https://www.lanzous.com/i98u1jc">For Mac</a>{: .btn}     <a href="https://www.lanzous.com/i98u9ef">For Windows</a>{: .btn}</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关于]]></title>
+        <id>https://triones7.github.io/post/about/</id>
+        <link href="https://triones7.github.io/post/about/">
+        </link>
+        <updated>2019-01-25T11:09:48.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
+</blockquote>
+<h2 id="关于本站">🏠 关于本站</h2>
+<p>Ethan的博客，由北斗工作室开发，用于展示想法。<br>
+这就是一个个人博客，主要用途有以下：</p>
+<ul>
+<li>用于分享一些软件</li>
+<li>写一些软件的体验报告</li>
+<li>抒发情感</li>
+<li>记录日记</li>
+<li>分享时事</li>
+<li>分享看法</li>
+<li>个人主页</li>
+<li>文件存储与下载<br>
+……..</li>
+</ul>
+<h2 id="博主是谁">👨‍💻 博主是谁</h2>
+<p>北斗，小白程序猿/网站博主（对，没错，就是这个网站）/up主（B站）……..<br>
+（同时是一位在被数学逼疯边缘的高中生</p>
+<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
+<h2 id="联系我呀">📬 联系我呀</h2>
 ]]></content>
     </entry>
 </feed>
