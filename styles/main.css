@@ -2065,14 +2065,18 @@ p > code {
         margin: 0 auto;
       }
     @font-face {
-      font-family: 'fzqkbys.TTF';
-      src: url('/media/fonts/fzqkbys.TTF.ttf');
+      font-family: 'HannotateSC';
+      src: url('/media/fonts/HannotateSC.ttf');
     }
     * {
-        font-family: 'fzqkbys.TTF';
+        font-family: 'HannotateSC';
     }
     .katex-block *{
       font-family: 'KaTeX_Main';
+    }
+    
+    .post-body {
+      font-size: 15px !important
     }
     body {
       color: #555;
