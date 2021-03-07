@@ -8,7 +8,7 @@
 <meta name="keywords" content="EthanWu个人博客">
 <meta name="description" content="记录、想法、生活">
 <meta name="theme-color" content="#000">
-<title>Ethan Wu&#39;s Blog</title>
+<title>电车难题 | Ethan Wu&#39;s Blog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1615114778569">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -41,6 +41,8 @@
 
 
 
+  <meta name="description" content="电车难题" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -186,10 +188,25 @@
   <div class="main-continer">
     
     <div
-      class="section-layout  gemini">
+      class="section-layout gemini ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -300,86 +317,318 @@
   </div>
 
 </div>
+          
+        
+      </div>
+    </div>
+  
 </div>
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
       }
-    });
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
   }
-  </script>
-        <div class="section-box tag-line box-shadow-wrapper">
-          <section class="section tags-section posts-expand bg-color">
-            <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          编程
-          <small class="language" data-lan="tag">标签</small>
-        </h2>
-      </div>
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://triones7.github.io/post/dian-che-nan-ti/">
+      电车难题
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2021-03-07 18:38:10">2021-03-07</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>8<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>2114<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+    
+    
+    <span id="/post/dian-che-nan-ti/" data-flag-title="电车难题" class="meta-item pc-show leancloud_visitors">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-eye"></i>
+      <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
+    </span>
+    
+  </div>
+</section>
+            <div class="post-body next-md-body" id="post_body">
+              <p>最近学校研学活动，十班搞了电车难题的研究，一系列及其<strong>阴间</strong>的问题。</p>
+<!-- more -->
+<p>先附上他们的调查问卷：<img src="https://i.loli.net/2021/03/07/W4baIivlUsC1MBk.jpg" alt="电车难题（长按扫描）" loading="lazy"><a href="https://www.wjx.cn/vm/Q0A1TWA.aspx">电车难题</a></p>
+<hr>
+<p>电车难题是老哲学问题了，探讨了人的道德标准问题。我从网上找到了一系列很阴间的版本<br>
+<img src="https://bkimg.cdn.bcebos.com/pic/29381f30e924b8991d58104862061d950a7bf65e" alt="img" loading="lazy"></p>
+<p>没错，这就是历史上最为著名的十大思想实验之一的**“电车难题”**，</p>
+<p>而在过去这半个世纪以来，科学家们为了剖析这个问题也做了许许多多的研究，</p>
+<p>其中最为著名的延伸实验就是**“推倒胖子的电车实验”**，</p>
+<figure data-type="image" tabindex="1"><img src="https://bkimg.cdn.bcebos.com/pic/0b46f21fbe096b632827372000338744ebf8ac80" alt="img" loading="lazy"></figure>
+<p>这一延伸实验的名声可丝毫都不怯弱于原实验，但在这两个看似**“近乎相同”**的实验设计上面，</p>
+<p>科学家却得到了<strong>截然不同</strong>的两个调研数据：</p>
+<blockquote>
+<p>在“电车实验”中，用户普遍倾向于“拉动拉杆”，使火车驾向一人躺轨的铁路上。</p>
+<p>而于“推倒胖子的电车实验”中，接受调研的用户则更加倾向于“不作为”。</p>
+</blockquote>
+<p>这两个不同的结果究竟是什么因素所促就的呢？拾部君就不在这里详细的展开来叙说了，只要你们知道这样一个事情就可以了。</p>
+<p>关于**“电车难题”<strong>的解决答案，也就是科学家们所想要寻找的</strong>“道德第一基准”<strong>（评判道德优劣的底层基础），在这长达半个世纪的探索中仍未找到最为为人所信服的</strong>终极答案。**</p>
+<p>也就是说，无论你坚持哪一边，都总会遭到一定程度上的**“道德审判”**，</p>
+<figure data-type="image" tabindex="2"><img src="https://bkimg.cdn.bcebos.com/pic/42166d224f4a20a4942055b79c529822720ed080" alt="img" loading="lazy"></figure>
+<p>如是说来，那人们究竟如何是好呢？</p>
+<p>在<strong>互联网浪潮</strong>已然渗透到社会生态每一个角落的当下，我们似乎找到了<strong>最为切实可行的解决方案</strong>，</p>
+<p>看看下方网友们的<strong>智慧</strong>吧：</p>
+<p>如果说<strong>人命</strong>选择不好受，那么换作<strong>物质金钱</strong>应当就比较好抉择了吧？</p>
+<figure data-type="image" tabindex="3"><img src="https://bkimg.cdn.bcebos.com/pic/0b7b02087bf40ad1de80ae935b2c11dfa9ecce5e" alt="img" loading="lazy"></figure>
+<p>如果说**“推倒胖子的电车实验”<strong>让你踌躇彷徨，那么就为底下的那五个平民加上</strong>“嘲讽BUFF”**吧，</p>
+<p>选择还会很难吗？</p>
+<figure data-type="image" tabindex="4"><img src="https://bkimg.cdn.bcebos.com/pic/0b46f21fbe096b63283c372000338744ebf8ac9d" alt="img" loading="lazy"></figure>
+<p>如果<strong>人命</strong>是妨碍你作出选择的关键，那就换成能<strong>将你<strong><strong>舒服到夭寿</strong></strong>的沙发</strong>吧，在这时，你又会有何感想？</p>
+<figure data-type="image" tabindex="5"><img src="https://bkimg.cdn.bcebos.com/pic/279759ee3d6d55fb7ff81f5661224f4a20a4dd80" alt="img" loading="lazy"></figure>
+<p>亦或者这样呢？用你的<strong>老二</strong>来换N个人的健全，你会拉动拉杆吗？</p>
+<p><img src="https://bkimg.cdn.bcebos.com/pic/6609c93d70cf3bc7c779a49cdd00baa1cd112a40" alt="img" loading="lazy">假如情况换一换，是你那位给你带绿帽的<strong>女朋友</strong>掰动了拉杆，使得列车碾去了她那五个<strong>情人</strong>的身上，那么你能够给这位<strong>生性坦荡</strong>的女友以原谅吗?</p>
+<figure data-type="image" tabindex="6"><img src="https://bkimg.cdn.bcebos.com/pic/3b87e950352ac65ce8200f03f7f2b21193138a9d" alt="img" loading="lazy"></figure>
+<p>除了上述<strong>纯粹恶搞玩乐</strong>的网友之外，也还存在着不少<strong>哲学大神</strong>的，</p>
+<p>在他们的把玩之下，这一**“电车难题”**也得到了更为全面而复杂的升级</p>
+<p>比如这样一个<strong>西西弗斯</strong>永恒折磨的改编，</p>
+<figure data-type="image" tabindex="7"><img src="https://bkimg.cdn.bcebos.com/pic/77c6a7efce1b9d16db51f311ffdeb48f8c54642f" alt="img" loading="lazy"></figure>
+<blockquote>
+<p>西西弗斯为希腊神话中的人物，出于绑架了死神，让世间没有了死亡而被诸神判刑，命其将一块重石搬运到上顶上，可囿于石头的质量太沉以及山坡的陡度太峭，每次差不多完成之际，石头都会从高山下滚落下来，如此反复，永无休止。</p>
+</blockquote>
+<p>还有这样的**“忒休斯之船”**加持的电车难题，</p>
+<p>这个问题已经偏离了**“电车难题”**的初衷了，由此也引发了另一个哲学难题的考量。</p>
+<figure data-type="image" tabindex="8"><img src="https://bkimg.cdn.bcebos.com/pic/d52a2834349b033bb6b695aa19ce36d3d539bd80" alt="img" loading="lazy"></figure>
+<blockquote>
+<p>忒休斯之船所描述的是“同一性悖论”，一首船如果被人一块一块的置换木头，直到最后全部被换新，那么这条船还是原来的那条船吗？如果不是，那么这条船究竟是在置换第几块木头的时候更换了属别的？但同时也有哲学家用人类身体的“新陈代谢”来论证它仍然是先前那条船。</p>
+</blockquote>
+<p>也有加持了**“薛定谔的猫”**理论的电车难题，</p>
+<figure data-type="image" tabindex="9"><img src="https://bkimg.cdn.bcebos.com/pic/dcc451da81cb39dbc4b90e26dc160924ab183040" alt="img" loading="lazy"></figure>
+<blockquote>
+<p>薛定谔的猫描述了在微观粒子尺度呈现的“量子状态叠加”的现象，即某一粒子的状态是不可能被精准确定的，而这一实验也被视为用宏观事物来描绘（亦或者用“搭接”也不为过）微观现象的最著名实验之一。</p>
+</blockquote>
+<p>以及罗尔斯所提出的**“无知之幕”**的理论</p>
+<figure data-type="image" tabindex="10"><img src="https://bkimg.cdn.bcebos.com/pic/30adcbef76094b36a1b6729dafcc7cd98d109d9d" alt="img" loading="lazy"></figure>
+<blockquote>
+<p>无知之幕：因为未来是不确定的，是挡着一张无知之幕的，因此最好的策略就是在行动之前达成一致的意见，互相帮助，尽量公平的分配财富。</p>
+</blockquote>
+<blockquote>
+<p>事实上，结合上“事情的描述”，以及“解决方法”的提出才能算是完成的“无知之幕”理论，而这一道电车难题当中也仅是取了前者而已，不过还不赖，也值得我们去琢磨琢磨。</p>
+</blockquote>
+<p>有了薛定谔的“物质状态叠加”理论，又怎能没有当下最为流行的**“量子纠缠”**的电车难题呢？</p>
+<figure data-type="image" tabindex="11"><img src="https://bkimg.cdn.bcebos.com/pic/023b5bb5c9ea15cec68a8979ba003af33a87b25e" alt="img" loading="lazy"></figure>
+<blockquote>
+<p>量子纠缠：存在着量子纠缠效应的两个粒子，其无论相隔多远（即使距离横跨了整个宇宙也都可以），在其一方作出反应的同时，另一方也对会就相对应的反应作出变化。也就是他们具备着“超时空沟通”的能力。</p>
+</blockquote>
+<p>另外还有博弈论观点的加入，比如下方的这一**“囚徒困境”**</p>
+<figure data-type="image" tabindex="12"><img src="https://bkimg.cdn.bcebos.com/pic/adaf2edda3cc7cd99c145da93501213fb80e9180" alt="img" loading="lazy"></figure>
+<blockquote>
+<p>囚徒困境：在信息互为不通畅的情况下，两名罪犯被分别收监了。如果两方都不认罪，那么两人都能够得到中等的刑期。但如果一方指责对方的话，指责人就能够无罪释放，而对方就会获得严厉的判刑。此外，如果双方都指责对方，那么双方就都会被严厉监禁。而囿于信息不通畅的情况下，以及各方的猜忌之下，往往囚徒都会选择互相指责。</p>
+</blockquote>
+<p>下面这个问题也是相当使人困惑，</p>
+<p>究竟<strong>人工智能</strong>可否等价于<strong>人类</strong>呢？如何才能对<strong>人类</strong>做出比较精准的<strong>定义</strong>呢？</p>
+<figure data-type="image" tabindex="13"><img src="https://bkimg.cdn.bcebos.com/pic/d043ad4bd11373f0044606efa80f4bfbfbed0440" alt="img" loading="lazy"></figure>
+<p>也有改版的人工智能问题**“图灵测试”**，有什么方法能够测试出对面是计算机而非人类呢？</p>
+<figure data-type="image" tabindex="14"><img src="https://bkimg.cdn.bcebos.com/pic/ac4bd11373f08202ddebf84f47fbfbedab641b40" alt="img" loading="lazy"></figure>
+<blockquote>
+<p>图灵测试：将人类和计算机隔开，人类随意向计算机提问，如果有超过30%的人类区分不出自己所提问的对象是人类还是机器，那么就代表这一机器已具备初等的人工智能能力。</p>
+</blockquote>
+<p>同样的人工智能问题还有这样一个变样</p>
+<figure data-type="image" tabindex="15"><img src="https://bkimg.cdn.bcebos.com/pic/42a98226cffc1e171221e4414690f603738de920" alt="img" loading="lazy"></figure>
+<blockquote>
+<p>其实只要根据阿西莫夫的机器人三定律就能够很完美的解决这个问题。第一，机器人是不能杀害人类，或者目睹人类于危险中而不顾的。第二，机器人必须服从人的命令，但不能与第一原则相悖。</p>
+</blockquote>
+<blockquote>
+<p>如此，面对这个问题机器人变回作出如下两个反应。</p>
+</blockquote>
+<blockquote>
+<p>1.机器人不会接受人类的命令去拉动拉杆，因为拉动就一定会造成人类死亡（背离原则一）。2.机器人会跑到轨道上去拯救即将被火车撞上的人类，亦或者用自己的躯体去挡住火车。</p>
+<p>好，问题解决！</p>
+</blockquote>
+<p>当然，网友们的想象力又岂是止步于此呢，他们还创作了**“真相系列”**的电车难题。</p>
+<p>不是觉得自己能<strong>救人</strong>吗？那就让真相告诉你，你所谓的<strong>义举</strong>，其实只是更大<strong>祸害</strong>的开始。</p>
+<figure data-type="image" tabindex="16"><img src="https://bkimg.cdn.bcebos.com/pic/42a98226cffc1e1713c6e5414690f603738de941" alt="img" loading="lazy"></figure>
+<p>认为自己很<strong>牛逼</strong>，能够决定他人的性命？别发<strong>白日梦</strong>了，真相往往是这样的。</p>
+<figure data-type="image" tabindex="17"><img src="https://bkimg.cdn.bcebos.com/pic/cefc1e178a82b901d1d4aa437f8da9773912ef41" alt="img" loading="lazy"></figure>
+<p>或者<strong>阴谋论</strong>一点的，你为了保住自己的<strong>饭碗</strong>，是否会主动制造一些并不存在的<strong>风险</strong>呢？</p>
+<figure data-type="image" tabindex="18"><img src="https://bkimg.cdn.bcebos.com/pic/3bf33a87e950352a31054c785f43fbf2b2118b5e" alt="img" loading="lazy"></figure>
+<p>我们都曾想过自己能够站在<strong>关键选择点</strong>的掐位口，决定眼前的这一系列事情。</p>
+<p>但往往，去到事故的现场，我们都会<strong>踌躇不前</strong>，而且更为可怕的是，我们也仅会为此<strong>小叹一口气</strong>而已，</p>
+<p><strong>片刻休憩</strong>之后，日子还是照常度过，没有一丝的<strong>疑虑</strong>。</p>
+<figure data-type="image" tabindex="19"><img src="https://bkimg.cdn.bcebos.com/pic/5243fbf2b21193134d2796c069380cd791238d5e" alt="img" loading="lazy"></figure>
+
+            </div>
+            
+              <div class="reward-btn">
+                <div class="reward-btn-text">赞赏</div>
+              </div>
+            
+            
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong class="language" data-lan="author">本文作者：</strong>
+      Ethan Wu
+    </li>
+    <li class="post-copyright-link">
+      <strong class="language" data-lan="link">本文链接：</strong>
+      <a href="https://triones7.github.io/post/dian-che-nan-ti/" title="电车难题">https://triones7.github.io/post/dian-che-nan-ti/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong class="language" data-lan="copyright">版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
       
+    </div>
+    <div class="nav-next">
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <a href="https://triones7.github.io/post/python-pa-chong-shi-jian/">
-        <div class="motion-warpper">
-          <div class="tag-post-node">
-            <h1>
-              02-10
-              <small>Python爬虫实践</small>
-            </h1>
-          </div>
-        </div>
-      </a>
-      
-      
-      
-      
-      
-      
-      
-      
+        <a class="nav-pc-next" title="正则表达式教程" href="https://triones7.github.io/post/zheng-ze-biao-da-shi-jiao-cheng/">正则表达式教程</a>
+        <a class="nav-mobile-next" title="正则表达式教程" href="https://triones7.github.io/post/zheng-ze-biao-da-shi-jiao-cheng/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
 </div>
-          </section>
+            
+            
+  <script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'SGN5g1cRufM32RBJPmEUjxUo-gzGzoHsz',
+    appKey: 'j3bCMNG9FyDvK3NeGEFxzI8J',
+    avatar: 'identicon',
+    placeholder: '(～o￣3￣)～来啊，互相伤害啊！',
+    pageSize: '',
+    lang: 'zh-cn',
+    enableQQ: 'true' === 'false',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'false',
+  });
+</script>
+
+          </div>
         </div>
       </div>
     </div>
@@ -1157,6 +1406,223 @@
     parent.insertBefore(aelem, next);
   })
 </script>
+    <div class="reward-mask" style="display: none;">
+  <div class="reward-relative">
+    <span class="close" aria-hidden="true">x</span>
+    <div class="reward-body">
+      <h2>感谢您的支持，我会继续努力的!</h2>
+      <div class="reward-img-box">
+        <div style="position: relative; width: 140px; height: 140px;">
+          
+          
+          
+        </div>
+      </div>
+      <p class="reward-word">扫码打赏，你说多少就多少</p>
+      <p class="reward-tip">打开微信扫一扫，即可进行扫码打赏哦</p>
+    </div>
+    <div class="bottom">
+      
+      
+    </div>
+  </div>
+</div>
+<style>
+  .reward-mask {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000054;
+  }
+
+  .reward-relative {
+    position: relative;
+    width: 480px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #fff;
+    top: 50%;
+    margin-top: -205px;
+  }
+
+  .reward-relative .close {
+    position: absolute;
+    right: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #929292;
+  }
+
+  .reward-body {
+    padding: 40px 20px 20px;
+  }
+
+  .bottom {
+    display: flex;
+  }
+
+  .reward-btn {
+    text-align: center;
+  }
+
+  .reward-btn-text {
+    display: inline-block;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: #ff9734;
+    color: #FFF;
+    margin-top: 20px;
+  }
+
+  .pay-text {
+    margin-top: 10px;
+    padding: 10px;
+    flex: 1;
+    transition: all .2s linear;
+  }
+
+  .pay-text:hover {
+    background-color: #a5a5a536;
+  }
+
+  .reward-body h2 {
+    padding-top: 10px;
+    text-align: center;
+    color: #a3a3a3;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 20px;
+  }
+
+  .reward-body h2:after,
+  .reward-body h2:before {
+    font-family: Arial, Helvetica, sans-serif;
+    background: 0 0;
+    width: 0;
+    height: 0;
+    font-style: normal;
+    color: #eee;
+    font-size: 80px;
+    position: absolute;
+    top: 20px;
+  }
+
+  .reward-body h2:before {
+    content: '\201c';
+    left: 50px;
+  }
+
+  .reward-body h2:after {
+    content: '\201d';
+    right: 80px;
+  }
+
+  .reward-img-box {
+    display: inline-block;
+    padding: 10px;
+    border: 6px solid #ea5f00;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .reward-img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .reward-relative {
+      height: 100%;
+      top: 0px;
+      margin-top: 0;
+      width: auto;
+    }
+
+    .reward-relative .bottom {
+      flex-direction: column;
+    }
+
+    .reward-relative .pay-text {
+      width: 80%;
+      margin: 5px auto;
+      border: 1px solid silver;
+      padding: 6px;
+      border-radius: 4px;
+    }
+
+    .reward-body h2:after {
+      right: 40px;
+    }
+
+    .reward-body h2:after,
+    .reward-body h2:before {
+      font-size: 60px;
+    }
+
+    .reward-body h2:before {
+      left: 20px;
+    }
+  }
+</style>
+<script>
+  !function () {
+    var mask = document.querySelector('.reward-mask');
+    let close = document.querySelector('.reward-relative .close');
+    let rewardBtn = document.querySelector('.reward-btn');
+
+    let zfb = document.querySelector('#zfb'),
+      wx = document.querySelector('#wx'),
+      zfbBtn = document.querySelector('#zfbBtn'),
+      wxBtn = document.querySelector('#wxBtn');
+
+    if (zfbBtn && wxBtn) {
+      zfbBtn.addEventListener('click', () => {
+        window.Velocity(zfb, 'transition.slideLeftIn', {
+          duration: 400
+        });
+        window.Velocity(wx, 'transition.slideRightOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+
+      wxBtn.addEventListener('click', () => {
+        window.Velocity(wx, 'transition.slideRightIn', {
+          duration: 400
+        });
+        window.Velocity(zfb, 'transition.slideLeftOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+    }
+
+    rewardBtn.addEventListener('click', (e) => {
+      window.Velocity(mask, 'transition.slideDownIn', {
+        duration: 400
+      })
+    });
+
+    close.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.Velocity(mask, 'transition.slideUpOut', {
+        duration: 400
+      })
+    })
+  }()
+</script>
+
   </div>
 </body>
 
@@ -2621,7 +3087,6 @@ else:
 
 
 <script src="/media/js/cool.js"></script>
-
 
 
 
