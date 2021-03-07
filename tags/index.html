@@ -1,275 +1,2488 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
 
-<title>标签 | Ethan Wu&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="keywords" content="EthanWu个人博客">
+<meta name="description" content="记录、想法、生活">
+<meta name="theme-color" content="#000">
+<title>Ethan Wu&#39;s Blog</title>
+<link rel="shortcut icon" href="/favicon.ico?v=1615090795464">
+<link rel="stylesheet" href="/media/css/gemini.css">
+<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link
+  href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+  rel="stylesheet" type="text/css">
 
-<link rel="shortcut icon" href="https://triones7.github.io/favicon.ico?v=1615042741736">
+<link href="/media/hljs/styles/Night Owl.css"
+  rel="stylesheet">
 
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://triones7.github.io/styles/main.css">
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"> -->
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-flash.css" rel="stylesheet" />
 
-<style>
-    hr {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        border: 0;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-    }
-</style>
+<link rel="stylesheet" href="/styles/main.css">
 
-<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+<script src="/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
 
-<!-- <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script> -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script> -->
-<!-- DEMO JS -->
-<!--<script src="media/scripts/index.js"></script>-->
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+
+
+
 
 
 </head>
+
 <body>
-<div class="main gt-bg-theme-color-first">
-    <div class="main-content">
-        <style>
-    /* 导航栏样式 */
-    .navbar {
-        position: relative;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -ms-flex-align: center;
-        align-items: center;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        padding: 0.5rem 1rem;
-    }
-
-    .navbar-brand {
-        display: inline-block;
-        padding-top: 0.3125rem;
-        padding-bottom: 0.3125rem;
-        margin-right: 1rem;
-        font-size: 1.25rem;
-        line-height: inherit;
-        white-space: nowrap;
-    }
-
-    .navbar-brand:hover,
-    .navbar-brand:focus {
-        text-decoration: none;
-    }
-
-    .navbar-nav {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        padding-left: 0;
-        margin-bottom: 0;
-        list-style: none;
-    }
-
-    .navbar-collapse {
-        -ms-flex-preferred-size: 100%;
-        flex-basis: 100%;
-        -ms-flex-positive: 1;
-        flex-grow: 1;
-        -ms-flex-align: center;
-        align-items: center;
-    }
-
-    .navbar-toggler {
-        padding: 0.25rem 0.75rem;
-        font-size: 1.25rem;
-        line-height: 1;
-        background-color: transparent;
-        border: 1px solid transparent;
-        border-radius: 0.25rem;
-    }
-
-    .navbar-toggler:hover,
-    .navbar-toggler:focus {
-        text-decoration: none;
-    }
-
-    @media (min-width: 992px) {
-        .navbar-expand-lg {
-            -ms-flex-flow: row nowrap;
-            flex-flow: row nowrap;
-            -ms-flex-pack: start;
-            justify-content: flex-start;
-        }
-
-        .navbar-expand-lg .navbar-nav {
-            -ms-flex-direction: row;
-            flex-direction: row;
-        }
-
-        .navbar-expand-lg .navbar-collapse {
-            display: -ms-flexbox !important;
-            display: flex !important;
-            -ms-flex-preferred-size: auto;
-            flex-basis: auto;
-        }
-
-        .navbar-expand-lg .navbar-toggler {
-            display: none;
-        }
-    }
-
-    @media (max-width: 991px) {
-        #navbarSupportedContent {
-            display: none;
-        }
-    }
-</style>
-<nav class="navbar navbar-expand-lg">
-    <div class="navbar-brand">
-        <img class="user-avatar" src="/images/avatar.png" alt="头像">
-        <div class="site-name gt-c-content-color-first">
-            Ethan Wu&#39;s Blog
+  <div class="head-top-line"></div>
+  <div class="header-box">
+    
+<div class="gemini">
+  <header class="header  ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
         </div>
+      </div>
+      <div class="site-meta">       
+        <div class="site-title">
+          
+            <a href="/" class="brand">
+              <span>Ethan Wu&#39;s Blog</span>
+            </a>  
+          
+        </div>
+        
+          <p class="subtitle">想法、记录、生活</p>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/" target="_self">
+                  <i class="fa fa-home"></i> 首页
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/archives/" target="_self">
+                  <i class="fa fa-archive"></i> 归档
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item nav-item-active">
+              
+              
+                <a href="/tags/" target="_self">
+                  <i class="fa fa-tags"></i> 标签
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/post/about/" target="_self">
+                  <i class="fa fa-user"></i> 关于
+                </a>
+              
+            </li>
+          
+          
+            
+              <li class="nav-item ">
+                <a href="/friends/" target="_blank">
+                  
+                    <i class="fa fa-address-book"></i> 友情链接
+                  
+                </a>
+              </li>
+            
+          
+          
+            <li id="fa_search" class="nav-item">
+              <a href="javascript:void(0);">
+                <i class="fa fa-search"></i> <span class="language" data-lan="search">搜索</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav mr-auto" style="text-align: center">
-            
-            <div class="nav-item">
-                
-                <a href="/" class="menu gt-a-link">
-                    首页
-                </a>
-                
-            </div>
-            
-            <div class="nav-item">
-                
-                <a href="/archives" class="menu gt-a-link">
-                    归档
-                </a>
-                
-            </div>
-            
-            <div class="nav-item">
-                
-                <a href="/tags" class="menu gt-a-link">
-                    标签
-                </a>
-                
-            </div>
-            
-            <div class="nav-item">
-                
-                <a href="/post/about" class="menu gt-a-link">
-                    关于
-                </a>
-                
-            </div>
-            
-        </div>
-        <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1615042741736"
-                action="/search/index.html">
-                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
-                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
-            </form>
-        </div>
-    </div>
-</nav>
-<script>
-    /* 移动端导航栏展开/收起切换 */
-    document.getElementById('changeNavbar').onclick = function () {
-        var element = document.getElementById('navbarSupportedContent');
-        if (element.style.display === 'none' || element.style.display === '') {
-            element.style.display = 'block';
-        } else {
-            element.style.display = 'none';
-        }
+  </header>
+</div>
+
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
     }
+  }
+
+  navToggle.addEventListener('click',navClick);  
 </script>
-        <div class="post-container">
-            <div class="post-detail gt-bg-theme-color-first">
-                <article class="gt-post-content">
-                    <h2 class="post-title">标签</h2>
-        <div class="tags-container">
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://triones7.github.io/tag/dO3q-xZD5/">#自律</a>
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://triones7.github.io/tag/AkjLNXmU26/">#技巧</a>
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://triones7.github.io/tag/3o0OuGnt4G/">#思维导图</a>
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://triones7.github.io/tag/3a1yJblg7Y/">#蓝奏云</a>
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://triones7.github.io/tag/uXqYD3VKh/">#软件</a>
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://triones7.github.io/tag/MQR68jNpU_/">#思杰马克丁</a>
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://triones7.github.io/tag/2c-P1Ex7yV/">#分享</a>
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://triones7.github.io/tag/mRkq61yLh/">#爬虫</a>
-            
-                <a class="tag gt-c-content-color-first gt-a-link"
-                   href="https://triones7.github.io/tag/67sVQGWec/">#编程</a>
-            
-        </div>
-    </article>
-</div>
-</div>
-        <div class="site-footer gt-c-content-color-first">
-    <div class="slogan gt-c-content-color-first">记录、想法、生活</div>
-    <div class="social-container">
-        
-            
-                <a href="https://ethanwu7.github.com" target="_blank">
-                    <i class="fab fa-github gt-c-content-color-first"></i>
-                </a>
-            
-        
-            
-        
-            
-        
-            
-                <a href="https://www.zhihu.com/people/triones-53-93" target="_blank">
-                    <i class="fab fa-zhihu gt-c-content-color-first"></i>
-                </a>
-            
-        
-            
-        
-            
-        
+  </div>
+  <div class="main-continer">
+    
+    <div
+      class="section-layout  gemini">
+      <div class="section-layout-wrapper">
+        <div id="sidebarMeta" class="sidebar">
+    
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="/images/avatar.png"/>
+    <p class="site-author-name">Ethan Wu</p>
+    
+    <div class="site-description right-motion">
+      
+        <p id="binft">小白程序猿，记录生活</p>
+      
     </div>
-    <div class="footer-info">
-        Powered by <a href="https://triones7.github.io" target="_blank"> Ethan wu</a><a href="https://triones7.github.io/atom.xml" target="_blank"> | RSS</a></a>
+    
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-name language" data-lan="article">文章</span>
+      </a>
     </div>
-</div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">9</span>
+        <span class="site-item-stat-name language" data-lan="category">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">9</span>
+        <span class="site-item-stat-name language" data-lan="tag">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+      <div class="sidebar-item">
+        <span class="site-item-rss">
+            <i class="fa fa-rss"></i>
+            <a href="https://triones7.github.io/atom.xml" target="_blank">RSS</a>
+        </span>
+      </div>
+    
+  
+  
+    <div class="sidebar-item sidebar-item-social">
+      <div class="social-item">
+        
+          
+            <a href="https://ethanwu7.github.com">
+              <i class="fa fa-github" title="Github"></i>
+            </a>
+          
+            <a href="mailto:wujiaweiethan@hotmail.com">
+              <i class="fa fa-envelope" title="邮箱"></i>
+            </a>
+          
+            <a href="https://steamcommunity.com/profiles/76561198902229708/">
+              <i class="fa fa-steam" title="Steam"></i>
+            </a>
+          
+            <a href="https://www.zhihu.com/people/triones-53-93">
+              <i class="fa fa-toggle-on" title="知乎"></i>
+            </a>
+          
+        
+        
+      </div>
+    </div>
+  
 
+
+
+  <div style="width: 100%; position: relative;">
+    <canvas id="canvasDiyBlock" style="width:100%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+    <script src="/media/js/magic/clock.js"></script>
+  </div>
+
+</div>
+</div>
 <script>
-  hljs.initHighlightingOnLoad()
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'gemini';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
+      }
+    });
+  }
+  </script>
+        <div class="section-box box-shadow-wrapper">
+          <section class="section tags-section bg-color posts-expand">
+            <div class="tags-box">
+  <div class="tag-cloud-title language" data-lan="cloud-tags" data-count="9">
+    目前共计 9 个标签
+  </div>
+  <div class="tag-cloud-list" id="tags">
+    
+      
+      
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+      
+        
+      
+      <a class="cloud-tag" href="https://triones7.github.io/tag/dO3q-xZD5/" rel="1">自律</a>
+    
+      
+      
+        
+          
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+      
+        
+      
+      <a class="cloud-tag" href="https://triones7.github.io/tag/AkjLNXmU26/" rel="1">技巧</a>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+      
+        
+      
+      <a class="cloud-tag" href="https://triones7.github.io/tag/3o0OuGnt4G/" rel="1">思维导图</a>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+      
+        
+      
+      <a class="cloud-tag" href="https://triones7.github.io/tag/3a1yJblg7Y/" rel="1">蓝奏云</a>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+      
+        
+      
+      <a class="cloud-tag" href="https://triones7.github.io/tag/uXqYD3VKh/" rel="1">软件</a>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+      
+        
+      
+      <a class="cloud-tag" href="https://triones7.github.io/tag/MQR68jNpU_/" rel="1">思杰马克丁</a>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+            
+      
+        
+          
+        
+          
+        
+          
+            
+      
+        
+      
+        
+      
+      <a class="cloud-tag" href="https://triones7.github.io/tag/2c-P1Ex7yV/" rel="2">分享</a>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+            
+      
+        
+      
+        
+      
+      <a class="cloud-tag" href="https://triones7.github.io/tag/mRkq61yLh/" rel="1">爬虫</a>
+    
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+        
+          
+        
+      
+        
+          
+        
+          
+            
+      
+        
+      
+        
+      
+      <a class="cloud-tag" href="https://triones7.github.io/tag/67sVQGWec/" rel="1">编程</a>
+    
+  </div>
+</div>
+<script>
+
+  let fontStart = 12, fontEnd = 30, colorStart = '#666', colorEnd = '#000';
+  let tags = document.querySelector('#tags').children;
+  let counts = [];
+  for(let i = 0; i < tags.length; i++) {
+    counts.push(tags[i].rel);
+  }
+  let lowest = Math.min.apply(null,counts), highest = Math.max.apply(null,counts);;
+  let range = highest - lowest;
+  if (range === 0) {
+    range = 1;
+  }
+  let fontIncr, colorIncr;
+  fontIncr = (fontEnd - fontStart) / range;
+  
+  let sColorArr = toRGB(colorStart), eColorArr = toRGB(colorEnd);
+
+  for(let i = 0; i < tags.length; i++) {
+    let disCount = tags[i].rel - lowest;
+    let fontSize = fontStart + disCount * fontIncr;
+    let style = 'font-size: ' + fontSize + 'px;';
+    let arr = [];
+    for(let c = 0; c < sColorArr.length; c++) {
+      if (disCount === 0) {
+        disCount = 1;
+      }
+      let val = (sColorArr[c] - eColorArr[c]) / range * disCount;
+      if (val >= 100) {
+        val = eColorArr[c];
+      } else if (val <= 0) {
+        val = sColorArr[c];
+      }
+      arr[c] = Math.floor(val);
+    }
+    style += 'color: ' + toHex(arr);
+    tags[i].style = style;
+  }
+
+  function toRGB(code) {
+    if (code.length === 4) {
+      code = code.replace(/(\w)(\w)(\w)/gi, "\$1\$1\$2\$2\$3\$3");
+    }
+    var hex = /(\w{2})(\w{2})(\w{2})/.exec(code);
+    return [parseInt(hex[1], 16), parseInt(hex[2], 16), parseInt(hex[3], 16)];
+  }
+
+  function toHex(ary) {
+    return "#" + ((1 << 24) + (ary[0] << 16) + (ary[1] << 8) + ary[2]).toString(16).slice(1);
+  }
+
+</script>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By <a
+        href="https://github.com/hsxyhao/gridea-theme-next" target="_blank">HsxyHao</a>
+    </div>
+    <div class="poweredby">
+      Powered by <a href="https://triones7.github.io" target="_blank"> Ethan wu</a>
+    </div>
+  </footer>
+  
+  
+  <div class="gemini back-to-top" id="back_to_top">
+    <i class="fa fa-arrow-up"></i>
+    
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
+  </div>
+  
+  
+  
+  <div class="bg-img">
+    <img src="/media/images/1.jpg" />
+  </div>
+  
+  
+  
+  
+<link rel="stylesheet" href="/media/live2d/css/live2d.css" />
+<div class="box-scale">
+  <div id="landlord" style="left: 5px;bottom: px;"
+    data-key="">
+    <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+    
+
+      <div class="message" style="opacity:0"></div>
+      <div class="live_talk_input_body">
+        <div class="live_talk_input_name_body">
+          <input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off"
+            placeholder="你的名字" />
+        </div>
+        <div class="live_talk_input_text_body">
+          <input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off"
+            placeholder="要和我聊什么呀？" />
+          <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+        </div>
+      </div>
+      <input name="live_talk" id="live_talk" value="1" type="hidden" />
+      <div class="live_ico_box">
+        <div class="live_ico_item type_info" id="showInfoBtn"></div>
+        <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input id="duType" value="douqilai" type="hidden">
+        
+      </div>
+    
+  </div>
+</div>
+<div id="open_live2d">召唤看板娘</div>
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+  var message_Path = 'https://cdn.jsdelivr.net/gh/hsxyhao/live2d.github.io@master/';
+  let landlord = document.querySelector('#landlord');
+  var apiKey = landlord.dataset.key;
+</script>
+<script type="text/javascript" src="/media/live2d/js/live2d.js"></script>
+<script>
+	var home_Path = document.location.protocol + '//' + window.document.location.hostname + ":" + window.document.location.port + '/';
+	var userAgent = window.navigator.userAgent.toLowerCase();
+	var norunAI = ["android", "iphone", "ipod", "ipad", "windows phone", "mqqbrowser", "msie", "trident/7.0"];
+	var norunFlag = false;
+
+	for (var i = 0; i < norunAI.length; i++) {
+		if (userAgent.indexOf(norunAI[i]) > -1) {
+			norunFlag = true;
+			break;
+		}
+	}
+
+	if (!window.WebGLRenderingContext) {
+		norunFlag = true;
+	}
+
+	if (!norunFlag) {
+		var hitFlag = false;
+		var AIFadeFlag = false;
+		var liveTlakTimer = null;
+		var sleepTimer_ = null;
+		var AITalkFlag = false;
+		var talkNum = 0;
+		(function () {
+			function renderTip(template, context) {
+				var tokenReg = /(\\)?\{([^\{\}\\]+)(\\)?\}/g;
+				return template.replace(tokenReg, function (word, slash1, token, slash2) {
+					if (slash1 || slash2) {
+						return word.replace('\\', '');
+					}
+					var variables = token.replace(/\s/g, '').split('.');
+					var currentObject = context;
+					var i, length, variable;
+					for (i = 0, length = variables.length; i < length; ++i) {
+						variable = variables[i];
+						currentObject = currentObject[variable];
+						if (currentObject === undefined || currentObject === null) return '';
+					}
+					return currentObject;
+				});
+			}
+
+			String.prototype.renderTip = function (context) {
+				return renderTip(this, context);
+			};
+
+			var re = /x/;
+			re.toString = function () {
+				showMessage('哈哈，你打开了控制台，是想要看看我的秘密吗？', 5000);
+				return '';
+			};
+
+			$(document).on('copy', function () {
+				showMessage('你都复制了些什么呀，转载要记得加上出处哦~~', 5000);
+			});
+
+			function initTips() {
+				$.ajax({
+					cache: true,
+					url: message_Path + 'message.json',
+					dataType: "json",
+					success: function (result) {
+						$.each(result.mouseover, function (index, tips) {
+							$(tips.selector).mouseover(function () {
+								var text = tips.text;
+								if (Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1) - 1];
+								text = text.renderTip({ text: $(this).text() });
+								showMessage(text, 3000);
+								talkValTimer();
+								clearInterval(liveTlakTimer);
+								liveTlakTimer = null;
+							});
+							$(tips.selector).mouseout(function () {
+								showHitokoto();
+								if (liveTlakTimer == null) {
+									liveTlakTimer = window.setInterval(function () {
+										showHitokoto();
+									}, 15000);
+								};
+							});
+						});
+						$.each(result.click, function (index, tips) {
+							$(tips.selector).click(function () {
+								if (hitFlag) {
+									return false
+								}
+								hitFlag = true;
+								setTimeout(function () {
+									hitFlag = false;
+								}, 8000);
+								var text = tips.text;
+								if (Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1) - 1];
+								text = text.renderTip({ text: $(this).text() });
+								showMessage(text, 3000);
+							});
+							clearInterval(liveTlakTimer);
+							liveTlakTimer = null;
+							if (liveTlakTimer == null) {
+								liveTlakTimer = window.setInterval(function () {
+									showHitokoto();
+								}, 15000);
+							};
+						});
+					}
+				});
+			}
+			initTips();
+
+			var text;
+			if (document.referrer !== '') {
+				var referrer = document.createElement('a');
+				referrer.href = document.referrer;
+				text = '嗨！来自 <span style="color:#0099cc;">' + referrer.hostname + '</span> 的朋友！';
+				var domain = referrer.hostname.split('.')[1];
+				if (domain == 'baidu') {
+					text = '嗨！ 来自 百度搜索 的朋友！<br>欢迎访问<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
+				} else if (domain == 'so') {
+					text = '嗨！ 来自 360搜索 的朋友！<br>欢迎访问<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
+				} else if (domain == 'google') {
+					text = '嗨！ 来自 谷歌搜索 的朋友！<br>欢迎访问<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
+				}
+			} else {
+				if (window.location.href == home_Path) { //主页URL判断，需要斜杠结尾
+					var now = (new Date()).getHours();
+					if (now > 23 || now <= 5) {
+						text = '你是夜猫子呀？这么晚还不睡觉，明天起的来嘛？';
+					} else if (now > 5 && now <= 7) {
+						text = '早上好！一日之计在于晨，美好的一天就要开始了！';
+					} else if (now > 7 && now <= 11) {
+						text = '上午好！工作顺利嘛，不要久坐，多起来走动走动哦！';
+					} else if (now > 11 && now <= 14) {
+						text = '中午了，工作了一个上午，现在是午餐时间！';
+					} else if (now > 14 && now <= 17) {
+						text = '午后很容易犯困呢，今天的运动目标完成了吗？';
+					} else if (now > 17 && now <= 19) {
+						text = '傍晚了！窗外夕阳的景色很美丽呢，最美不过夕阳红~~';
+					} else if (now > 19 && now <= 21) {
+						text = '晚上好，今天过得怎么样？';
+					} else if (now > 21 && now <= 23) {
+						text = '已经这么晚了呀，早点休息吧，晚安~~';
+					} else {
+						text = '嗨~ 快来逗我玩吧！';
+					}
+				} else {
+					text = '欢迎阅读<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
+				}
+			}
+			showMessage(text, 12000);
+		})();
+
+		liveTlakTimer = setInterval(function () {
+			showHitokoto();
+		}, 15000);
+
+		function showHitokoto() {
+			if (sessionStorage.getItem("Sleepy") !== "1") {
+				if (!AITalkFlag) {
+					$.getJSON('https://v1.hitokoto.cn/', function (result) {
+						talkValTimer();
+						showMessage(result.hitokoto, 0);
+					});
+				}
+			} else {
+				hideMessage(0);
+				if (sleepTimer_ == null) {
+					sleepTimer_ = setInterval(function () {
+						checkSleep();
+					}, 200);
+				}
+			}
+		}
+
+		function checkSleep() {
+			var sleepStatu = sessionStorage.getItem("Sleepy");
+			if (sleepStatu !== '1') {
+				talkValTimer();
+				showMessage('你回来啦~', 0);
+				clearInterval(sleepTimer_);
+				sleepTimer_ = null;
+			}
+		}
+
+		function showMessage(text, timeout) {
+			if (Array.isArray(text)) text = text[Math.floor(Math.random() * text.length + 1) - 1];
+			$('.message').stop();
+			$('.message').html(text);
+			$('.message').fadeTo(200, 1);
+			//if (timeout === null) timeout = 5000;
+			//hideMessage(timeout);
+		}
+		function talkValTimer() {
+			$('#live_talk').val('1');
+		}
+
+		function hideMessage(timeout) {
+			//$('.message').stop().css('opacity',1);
+			if (timeout === null) timeout = 5000;
+			$('.message').delay(timeout).fadeTo(200, 0);
+		}
+
+		function initLive2d() {
+			$('#hideButton').on('click', function () {
+				if (AIFadeFlag) {
+					return false;
+				} else {
+					AIFadeFlag = true;
+					localStorage.setItem("live2dhidden", "0");
+					$('#landlord').fadeOut(200);
+					$('#open_live2d').delay(200).fadeIn(200);
+					setTimeout(function () {
+						AIFadeFlag = false;
+					}, 300);
+				}
+			});
+			$('#open_live2d').on('click', function () {
+				if (AIFadeFlag) {
+					return false;
+				} else {
+					AIFadeFlag = true;
+					localStorage.setItem("live2dhidden", "1");
+					$('#open_live2d').fadeOut(200);
+					$('#landlord').delay(200).fadeIn(200);
+					setTimeout(function () {
+						AIFadeFlag = false;
+					}, 300);
+				}
+			});
+			$('#youduButton').on('click', function () {
+				if ($('#youduButton').hasClass('doudong')) {
+					var typeIs = $('#youduButton').attr('data-type');
+					$('#youduButton').removeClass('doudong');
+					$('body').removeClass(typeIs);
+					$('#youduButton').attr('data-type', '');
+				} else {
+					var duType = $('#duType').val();
+					var duArr = duType.split(",");
+					var dataType = duArr[Math.floor(Math.random() * duArr.length)];
+
+					$('#youduButton').addClass('doudong');
+					$('#youduButton').attr('data-type', dataType);
+					$('body').addClass(dataType);
+				}
+			});
+			if (apiKey) {
+				$('#showInfoBtn').on('click', function () {
+					var live_statu = $('#live_statu_val').val();
+					if (live_statu == "0") {
+						return
+					} else {
+						$('#live_statu_val').val("0");
+						$('.live_talk_input_body').fadeOut(500);
+						AITalkFlag = false;
+						showHitokoto();
+						$('#showTalkBtn').show();
+						$('#showInfoBtn').hide();
+					}
+				});
+				$('#showTalkBtn').on('click', function () {
+					var live_statu = $('#live_statu_val').val();
+					if (live_statu == "1") {
+						return
+					} else {
+						$('#live_statu_val').val("1");
+						$('.live_talk_input_body').fadeIn(500);
+						AITalkFlag = true;
+						$('#showTalkBtn').hide();
+						$('#showInfoBtn').show();
+
+					}
+				});
+				$('#talk_send').on('click', function () {
+					var info_ = $('#AIuserText').val();
+					var userid_ = $('#AIuserName').val();
+					if (info_ == "") {
+						showMessage('写点什么吧！', 0);
+						return;
+					}
+					if (userid_ == "") {
+						showMessage('聊之前请告诉我你的名字吧！', 0);
+						return;
+					}
+					showMessage('思考中~', 0);
+					let protocol = window.location.protocol.indexOf("s") > 0 ? "https" : "http";
+					$.ajax({
+						type: "get",
+						url: `${protocol}://www.tuling123.com/openapi/api?key=${apiKey}&info=${info_}`,
+						dataType: "json",
+						success: function (res) {
+							talkValTimer();
+							showMessage(res.text, 0);
+							$('#AIuserText').val("");
+							sessionStorage.setItem("live2duser", userid_);
+						},
+						error: function (e) {
+							talkValTimer();
+							showMessage('似乎有什么错误，请和站长联系！', 0);
+						}
+					});
+				});
+			} else {
+				$('#showInfoBtn').hide();
+				$('#showTalkBtn').hide();
+			}
+			//获取音乐信息初始化
+			var bgmListInfo = $('input[name=live2dBGM]');
+			if (bgmListInfo.length == 0) {
+				$('#musicButton').hide();
+			} else {
+				var bgmPlayNow = parseInt($('#live2d_bgm').attr('data-bgm'));
+				var bgmPlayTime = 0;
+				var live2dBGM_Num = sessionStorage.getItem("live2dBGM_Num");
+				var live2dBGM_PlayTime = sessionStorage.getItem("live2dBGM_PlayTime");
+				if (live2dBGM_Num) {
+					if (live2dBGM_Num <= $('input[name=live2dBGM]').length - 1) {
+						bgmPlayNow = parseInt(live2dBGM_Num);
+					}
+				}
+				if (live2dBGM_PlayTime) {
+					bgmPlayTime = parseInt(live2dBGM_PlayTime);
+				}
+				var live2dBGMSrc = bgmListInfo.eq(bgmPlayNow).val();
+				$('#live2d_bgm').attr('data-bgm', bgmPlayNow);
+				$('#live2d_bgm').attr('src', live2dBGMSrc);
+				$('#live2d_bgm')[0].currentTime = bgmPlayTime;
+				$('#live2d_bgm')[0].volume = 0.5;
+				var live2dBGM_IsPlay = sessionStorage.getItem("live2dBGM_IsPlay");
+				var live2dBGM_WindowClose = sessionStorage.getItem("live2dBGM_WindowClose");
+				if (live2dBGM_IsPlay == '0' && live2dBGM_WindowClose == '0') {
+					$('#live2d_bgm')[0].play();
+					$('#musicButton').addClass('play');
+				}
+				sessionStorage.setItem("live2dBGM_WindowClose", '1');
+				$('#musicButton').on('click', function () {
+					if ($('#musicButton').hasClass('play')) {
+						$('#live2d_bgm')[0].pause();
+						$('#musicButton').removeClass('play');
+						sessionStorage.setItem("live2dBGM_IsPlay", '1');
+					} else {
+						$('#live2d_bgm')[0].play();
+						$('#musicButton').addClass('play');
+						sessionStorage.setItem("live2dBGM_IsPlay", '0');
+					}
+				});
+				window.onbeforeunload = function () {
+					sessionStorage.setItem("live2dBGM_WindowClose", '0');
+					if ($('#musicButton').hasClass('play')) {
+						sessionStorage.setItem("live2dBGM_IsPlay", '0');
+					}
+				}
+				document.getElementById('live2d_bgm').addEventListener("timeupdate", function () {
+					var live2dBgmPlayTimeNow = document.getElementById('live2d_bgm').currentTime;
+					sessionStorage.setItem("live2dBGM_PlayTime", live2dBgmPlayTimeNow);
+				});
+				document.getElementById('live2d_bgm').addEventListener("ended", function () {
+					var listNow = parseInt($('#live2d_bgm').attr('data-bgm'));
+					listNow++;
+					if (listNow > $('input[name=live2dBGM]').length - 1) {
+						listNow = 0;
+					}
+					var listNewSrc = $('input[name=live2dBGM]').eq(listNow).val();
+					sessionStorage.setItem("live2dBGM_Num", listNow);
+					$('#live2d_bgm').attr('src', listNewSrc);
+					$('#live2d_bgm')[0].play();
+					$('#live2d_bgm').attr('data-bgm', listNow);
+				});
+				document.getElementById('live2d_bgm').addEventListener("error", function () {
+					$('#live2d_bgm')[0].pause();
+					$('#musicButton').removeClass('play');
+					showMessage('音乐似乎加载不出来了呢！', 0);
+				});
+			}
+			//获取用户名
+			var live2dUser = sessionStorage.getItem("live2duser");
+			if (live2dUser !== null) {
+				$('#AIuserName').val(live2dUser);
+			}
+			//获取位置
+			var landL = sessionStorage.getItem("historywidth");
+			var landB = sessionStorage.getItem("historyheight");
+			if (landL == null || landB == null) {
+				landL = '5px'
+				landB = '0px'
+			}
+			$('#landlord').css('left', landL + 'px');
+			$('#landlord').css('bottom', landB + 'px');
+			//移动
+			function getEvent() {
+				return window.event || arguments.callee.caller.arguments[0];
+			}
+			var smcc = document.getElementById("landlord");
+			var moveX = 0;
+			var moveY = 0;
+			var moveBottom = 0;
+			var moveLeft = 0;
+			var moveable = false;
+			var docMouseMoveEvent = document.onmousemove;
+			var docMouseUpEvent = document.onmouseup;
+			smcc.onmousedown = function () {
+				var ent = getEvent();
+				moveable = true;
+				moveX = ent.clientX;
+				moveY = ent.clientY;
+				var obj = smcc;
+				moveBottom = parseInt(obj.style.bottom);
+				moveLeft = parseInt(obj.style.left);
+				if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
+					window.getSelection().removeAllRanges();
+				}
+				document.onmousemove = function () {
+					if (moveable) {
+						var ent = getEvent();
+						var x = moveLeft + ent.clientX - moveX;
+						var y = moveBottom + (moveY - ent.clientY);
+						obj.style.left = x + "px";
+						obj.style.bottom = y + "px";
+					}
+				};
+				document.onmouseup = function () {
+					if (moveable) {
+						var historywidth = obj.style.left;
+						var historyheight = obj.style.bottom;
+						historywidth = historywidth.replace('px', '');
+						historyheight = historyheight.replace('px', '');
+						sessionStorage.setItem("historywidth", historywidth);
+						sessionStorage.setItem("historyheight", historyheight);
+						document.onmousemove = docMouseMoveEvent;
+						document.onmouseup = docMouseUpEvent;
+						moveable = false;
+						moveX = 0;
+						moveY = 0;
+						moveBottom = 0;
+						moveLeft = 0;
+					}
+				};
+			};
+		}
+		$(document).ready(function () {
+			var AIimgSrc = [];
+			let chooseLive2d = 'histoire'
+			if (chooseLive2d === 'histoire') {
+				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_00.png");
+				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_01.png");
+				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_02.png");
+				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_03.png");
+			} else if (chooseLive2d === 'rem') {
+				AIimgSrc.push(message_Path + "model/rem/remu2048/texture_00.png");
+			} else if (chooseLive2d === 'aoba') {
+				AIimgSrc.push(message_Path + "model/aoba/textures/texture_00.png");
+			} else if (chooseLive2d === 'hijiki') {
+				AIimgSrc.push(message_Path + "model/hijiki/moc/hijiki.2048/texture_00.png");
+			} else if (chooseLive2d === 'tororo') {
+				AIimgSrc.push(message_Path + "model/tororo/moc/tororo.2048/texture_00.png");
+			}
+			var images = [];
+			var imgLength = AIimgSrc.length;
+			var loadingNum = 0;
+			for (var i = 0; i < imgLength; i++) {
+				images[i] = new Image();
+				images[i].src = AIimgSrc[i];
+				images[i].onload = function () {
+					loadingNum++;
+					if (loadingNum === imgLength) {
+						var live2dhidden = localStorage.getItem("live2dhidden");
+						if (live2dhidden === "0") {
+							setTimeout(function () {
+								$('#open_live2d').fadeIn(200);
+							}, 1300);
+						} else {
+							setTimeout(function () {
+								$('#landlord').fadeIn(200);
+							}, 1300);
+						}
+						let model = '';
+						if (chooseLive2d === 'histoire') {
+							model = message_Path + "model/histoire/model.json";
+						} else if (chooseLive2d === 'rem') {
+							model = message_Path + "model/rem/model.json";
+						} else if (chooseLive2d === 'aoba') {
+							model = message_Path + "model/aoba/model.json";
+						} else if (chooseLive2d === 'hijiki') {
+							model = message_Path + "model/hijiki/hijiki.model.json";
+						} else if (chooseLive2d === 'tororo') {
+							model = message_Path + "model/tororo/tororo.model.json";
+						}
+						setTimeout(function () {
+							loadlive2d("live2d", model);
+						}, 1000);
+						initLive2d();
+						images = null;
+					}
+				}
+			}
+		});
+	}
+</script>
+  
+  
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <div class="aplayer" id="aplayer"></div>
+  <script>
+  let musics = JSON.parse('[]');
+  let mediaMusic = [];
+  for (let i = 0; i < musics.length; i++) {
+    let item = musics[i];
+    mediaMusic.push({
+      name: item.musicName,
+      artist: item.author,
+      url: item.musicLink,
+      lrc: item.lrc,
+      cover: item.cover
+    });
+  }
+
+  const ap = new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      lrcType: 3,
+      listFolded: false,
+      listMaxHeight: 90,
+      audio: mediaMusic
+  });
+  window.addEventListener('load', function() {
+    let postBody = document.querySelector('#post_body');
+    let hs = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+    postBody && hs.forEach(h => {
+      let helems = postBody.querySelectorAll(h);
+      if (helems.length > 0) {
+        helems.forEach(elem => {
+          elem.id = encodeURI(elem.id);
+        })
+      }
+    })
+  })
+  </script>
+
+
+  
+</div>
+<script>
+
+  let sideBarOpen = 'sidebar-open';
+  let body = document.body;
+  let back2Top = document.querySelector('#back_to_top'),
+    back2TopText = document.querySelector('#back_to_top_text'),
+    drawerBox = document.querySelector('#drawer_box'),
+    rightSideBar = document.querySelector('.sidebar'),
+    viewport = document.querySelector('body');
+
+  function scrollAnimation(currentY, targetY) {
+
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function (e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+
+  window.addEventListener('scroll', function (e) {
+    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  });
+
+
+  let hasCacu = false;
+  window.onresize = function () {
+    calcuHeight();
+  }
+
+  function calcuHeight() {
+    // 动态调整站点概览高度
+    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
+      let sideBar = document.querySelector('.sidebar');
+      let navUl = document.querySelector('#site_nav');
+      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
+      hasCacu = true;
+    }
+  }
+  calcuHeight();
+
+  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
+    drawerBox.onclick = function () {
+      open = !open;
+      window.Velocity(rightSideBar, 'stop');
+      window.Velocity(viewport, 'stop');
+      window.Velocity(rightMotions, 'stop');
+      if (open) {
+        window.Velocity(rightSideBar, {
+          width: RIGHT_MOVE_DIS
+        }, {
+          duration: MOTION_TIME,
+          begin: function () {
+            window.Velocity(rightMotions, transitionDir, {});
+          }
+        })
+        window.Velocity(viewport, openProp, {
+          duration: MOTION_TIME
+        });
+      } else {
+        window.Velocity(rightSideBar, {
+          width: '0px'
+        }, {
+          duration: MOTION_TIME,
+          begin: function () {
+            window.Velocity(rightMotions, {
+              opacity: 0
+            });
+          }
+        })
+        window.Velocity(viewport, closeProp, {
+          duration: MOTION_TIME
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle('muse-line');
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    }
+  }
+
+  // 链接跳转
+  let newWindow = 'false'
+  if (newWindow === 'true') {
+    let links = document.querySelectorAll('.post-body a')
+    links.forEach(item => {
+      if (!item.classList.contains('btn')) {
+        item.setAttribute("target", "_blank");
+      }
+    })
+  }
+
+  let faSearch = document.querySelector('#fa_search');
+  faSearch.addEventListener('click', function () {
+    document.querySelector('#search_mask').style = ''
+  })
+
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+  
+  // 离开当前页title变化
+  var leaveTitle = "(っ °Д °;)っ不要走啊~~";
+  if (leaveTitle) {
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState == 'hidden') {
+        normal_title = document.title;
+        document.title = leaveTitle;
+      } else {
+        document.title = normal_title;
+      }
+    });
+  }
+
 </script>
 
-    </div>
-</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script>
+  let images = document.querySelectorAll('.section img');
+  console.log(images);
+  images.forEach(image => {
+    var parent = image.parentElement;
+    var next = image.nextElementSibling;
+    parent.removeChild(image);
+    var aelem = document.createElement('a');
+    aelem.href = image.src;
+    aelem.dataset['fancybox'] = 'images';
+    aelem.dataset['rel'] = 'fancybox-button';
+    aelem.classList.add('fancybox');
+    aelem.appendChild(image);
+    parent.insertBefore(aelem, next);
+  })
+</script>
+  </div>
 </body>
+
+<div class="search-mask" id="search_mask" style="display: none;">
+  <div class="search-box">
+    <div class="search-title">
+      <i class="fa fa-search"></i>
+      <div class="input-box">
+        <input id="search" type="text" class="language" data-lan="search" placeholder="搜索">
+      </div>
+      <i id="close" class="fa fa-times-circle"></i>
+    </div>
+    <div class="stat-box">
+      <span id="stat_count">0</span><span class="language" data-lan="stat">条相关条目，使用了</span><span id="stat_times">0</span><span class="language" data-lan="stat-time">毫秒</span>
+      <hr>
+    </div>
+    <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://triones7.github.io/post/wo-yao-zi-lu-zheng-li-fang-fa/"" data-c="
+          &lt;p&gt;我要立下flag，我要自律，加油！🤳&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;咳咳&#34;&gt;咳咳&lt;/h2&gt;
+&lt;p&gt;这章内容超多，我做了一个思维导图，思路会清晰一点。思维导图源文件在这里：&lt;a href=&#34;https://www.lanzous.com/i9batcb&#34;&gt;思维导图下载&lt;/a&gt;&lt;a href=&#34;https://i.loli.net/2020/02/13/km8sZT91LIoRqMY.png&#34;&gt;思维导图放大&lt;/a&gt;&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://i.loli.net/2020/02/13/km8sZT91LIoRqMY.png&#34; alt=&#34;自律方法.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;自律给我自由&#34;&gt;自律给我自由&lt;/h3&gt;
+&lt;p&gt;有时候不逼一下自己，你不知道自己有多厉害！开始啦！&lt;/p&gt;
+&lt;h2 id=&#34;内容记录与分享&#34;&gt;内容记录与分享&lt;/h2&gt;
+&lt;h3 id=&#34;自律的方法&#34;&gt;自律的方法&lt;/h3&gt;
+&lt;p&gt;此处来自公众号：黛西巫巫（对，没错，我是被知乎引流的）&lt;/p&gt;
+&lt;h4 id=&#34;dsre精力管理法&#34;&gt;&lt;strong&gt;DSRE精力管理法&lt;/strong&gt;&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;D-diet，饮食&lt;/li&gt;
+&lt;li&gt;S-sport，运动&lt;/li&gt;
+&lt;li&gt;R-rest，休息&lt;/li&gt;
+&lt;li&gt;E-environment，环境&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&#34;d-diet饮食&#34;&gt;D-diet，饮食&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;「You are what you eat」，你吃什么，你就是什么。学会「吃」，是变牛逼的第一步。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;***营养质量指数NQI***越高，食品越健康，所以这里附上一张NQI指数表&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://i.loli.net/2020/02/13/KqVQOIWFngTXkvS.jpg&#34; alt=&#34;NQI指数表.jpg&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h5 id=&#34;s-sport运动&#34;&gt;S-sport，运动&lt;/h5&gt;
+&lt;p&gt;**利用碎片时间，见缝插针地运动。**此属无奈之举。。。&lt;/p&gt;
+&lt;p&gt;上厕所的路上，做2分钟颈椎操；工作2小时，起来喝点水，搓搓脸。下班后走一段路，再坐交通工具回家。&lt;/p&gt;
+&lt;p&gt;还有一种hitt训练，就是高强度间歇性训练，在短时间燃烧大量能量。&lt;/p&gt;
+&lt;h5 id=&#34;r-rest休息&#34;&gt;R-rest，休息&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;人在睡眠的时候，身体是一个主动的修复过程。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;获得优质睡眠&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;在临睡前90分钟就要远离手机、iPad、电脑、电视等电子类产品。尽量少看这种发蓝光的电子设备，因为会抑制褪黑素的分泌。（褪黑素是促眠的，能让你感到困，快速入睡。）&lt;/li&gt;
+&lt;li&gt;白天充分地运动。白天够累，晚上自然就能睡着了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;不用焦虑，一周之内晚睡不超过两次，精力是可以恢复的。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;午睡&lt;/strong&gt;作用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;午睡虽然不能使大脑得到深层修复，但有快速清理内存的效果，类似让大脑关机重启，能使疲惫得到快速缓解。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;需要注意的是，打盹儿和午睡时间不要超过30分钟。&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&#34;e-environment环境&#34;&gt;E-environment，环境&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;采光好&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;光线太强或者太弱时，我们的眼睛很容易产生疲惫，无法集中精神，长时间还会造成头晕、抑郁、影响睡眠等。&lt;/p&gt;
+&lt;p&gt;白天的话，尽量用自然光阅读。光线不足的晚上，建议大家使用无频闪的护眼灯，用舒适的暖黄光，保持阅读的舒适性，也不容易形成近视。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通风好&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;经常开窗通风，可以保持室内空气新鲜流通，有大量氧气促进人体新陈代谢。&lt;/p&gt;
+&lt;p&gt;同时室内通风好，病菌的数量就减少，因为有些病菌只能在阴暗潮湿的环境中生存，一到空气流通阳光充足的环境里就自动消失了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;整洁&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我们的工作桌面，一定要整洁有序。&lt;strong&gt;这不是为了装逼，至少有两个好处：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;整洁的环境，是一种高级的仪式感，让我们以更愉悦的心情投入学习；&lt;/li&gt;
+&lt;li&gt;东西越少，干扰越少，有助于我们能够不间断地持续工作。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安静&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;并非所有人都有「闹市读书」的能力。与其花时间去磨练专注力，不如直接了当地给自己一个安静的学习环境，最大程度减少干扰。&lt;strong&gt;有两个办法：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;**下载白噪音软件。**如潮汐、noizio。他们可以模拟大自然如海水、森林、下雨的环境，利于我们沉浸式工作、&lt;/li&gt;
+&lt;li&gt;**带耳塞或者降噪耳机。**带耳塞直接屏蔽噪音，降噪耳机可以用物理方式，隔绝掉噪音，感觉好像进入一个真空环境里，非常的安静。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;ps以上内容摘自黛西巫巫公众号贴出链接-请用微信打开-btn&#34;&gt;P.S.以上内容摘自&lt;em&gt;黛西巫巫&lt;/em&gt;公众号，贴出链接： &lt;a href=&#34;https://mp.weixin.qq.com/s/y_cyLVAeWPW6Ya4m9HQU-w&#34;&gt;请用微信打开&lt;/a&gt;{: .btn}&lt;/h5&gt;
+&lt;h4 id=&#34;人是怎么废掉的&#34;&gt;人是怎么废掉的&lt;/h4&gt;
+&lt;p&gt;就是长期沉迷于这些短期反馈的事情，意志力和心智逐步被蚕食，最后身体被掏空、脑子被榨干、对一切失去兴趣、想做点事情时却感到无能为力，沦为一个真正的废柴。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你要是想观察社会，就去看看微博热点话题下⾯的评论者，跟着他们的脚印，去看看他们的⽣活，就会发现，这些⼈没⼏个是像样和靠谱的。并且这其中还存在⼀个可怕的规律，评论者⽣活的不景⽓程度，与他骂⼈的激烈程度，⼏乎是成正⽐。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&#34;建议&#34;&gt;建议&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;避免接收「低信息密度」的信息源，对泛滥的大众娱乐资讯保持高度警惕，把你的目光，专注到经过时间验证的经典作品上。&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;比如读书就要读经典，而不是烂大街的畅销书；&lt;/p&gt;
+&lt;p&gt;看质量高的纪录片，而不是不用动脑的纯娱乐综艺节目；&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;你主动过滤掉的信息越多，你保存的注意力就越多，你就越有富余的时间和脑力，来寻找和消化那些真正有价值的东西。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;逼自己学会真正的自律&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;首先，你得想明白自己要什么&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	你要给自己定一个目标，让欲望和动力去驱动你，而不是焦虑和自责，&lt;strong&gt;当每天唤醒你的是梦想而不是闹	钟，你就开始明白什么是真正的自律了。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;​	说完什么是自律，我们也可以学习如何让自己变得自律起来。如果你总是喜欢拖延，晚上躺床上玩手机不	想闭眼，做事三分钟热度，偶尔想坚持努力，过不了几天就被打回原形，&lt;strong&gt;不要怕，你不是真的懒，而是	没有找到方法。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;少做消耗性的事情，把志趣转移到创造上来。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;任何能「轻易获得高成就感」的事情，都要小心。轻易能让你爽的事情，最后都容易让你痛苦。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;一个人能取得多大成绩，核心条件绝对不是天赋异禀，也不是上天垂怜，而是你把你最宝贵的注意力，花在了一件有创造力的事情上，并且为它付出超过常人的心血和努力。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;ps以上内容摘自答主黛西巫巫在知乎上的回答知乎人是怎么废掉的-btn&#34;&gt;P.S.以上内容摘自答主&lt;em&gt;黛西巫巫&lt;/em&gt;在知乎上的回答：&lt;a href=&#34;https://www.zhihu.com/question/43607087/answer/965541333?utm_source=wechat_session&amp;amp;utm_medium=social&amp;amp;utm_oi=1062446659849555968&#34;&gt;知乎：人是怎么废掉的&lt;/a&gt;{: .btn}&lt;/h5&gt;
+&lt;h4 id=&#34;推荐书单&#34;&gt;推荐书单&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;ul class=&#34;contains-task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-3832189&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-3832189&#34;&gt; 《上帝掷骰子吗——量子物理史话》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul class=&#34;contains-task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-3594933&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-3594933&#34;&gt; 《万历十五年》&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;万历皇帝、海瑞、戚继光......这些在历史课本中的角色，在《万历十五年》中，变成一个个非常鲜活的人物，在书中我仿佛&lt;strong&gt;亲临他们的处境、情欲、苦恼、梦想......&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;一本《万历十五年》，远胜10本普通的历史故事书，我不仅了解了文化政治制度的症结，人心被制度的扭曲，更学习了一种大视野看问题的思维。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul class=&#34;contains-task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-5024816&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-5024816&#34;&gt; 《白夜行》（慎看）&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;甩出一句书中金句：世上有两样东西不可直视，一是太阳，二是人心。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul class=&#34;contains-task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-4175073&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-4175073&#34;&gt; 《非暴力沟通》&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;人的幸福程度，取决于你和周围人的相处程度&lt;/strong&gt;。而沟通，又决定了相处的和谐程度。&lt;/p&gt;
+&lt;p&gt;人是情绪动物，情绪是一个人的底层操作系统。生活里，言语上的指责、嘲讽、说教、拒不回应等错误沟通方式，给我们带来的情感创伤，甚至比肉体的伤害，更加令人痛苦。&lt;/p&gt;
+&lt;p&gt;生活不是一场辩论赛，目的不是争对错，而是活得更好。&lt;/p&gt;
+&lt;p&gt;这本书很实用，简单地用四个步骤（观察、感受、需要、请求）系统教你，如何有效表达，提高双方的相处幸福度。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这是一部讲述沟通技巧的专业书，也是一部教授你积极生活的哲学书。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul class=&#34;contains-task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-3328892&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-3328892&#34;&gt; 《原则》&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;《原则》的内容不是一般的&lt;strong&gt;丰富&lt;/strong&gt;，看完你绝对会被它的**“全面”**所折服。&lt;/p&gt;
+&lt;p&gt;书里有一段话让我印象深刻：**梦想+现实+决心=成功的生活。**成功的人，对现实背后的因果关系有着深刻的理解，并善于利用「原则」实现自己的愿望。&lt;/p&gt;
+&lt;p&gt;还有我们对待错误的态度：**痛苦+反思=进步。**读完有一种醍醐灌顶之感。&lt;strong&gt;苦难不是财富，对苦难的反思才是。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul class=&#34;contains-task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-5706573&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-5706573&#34;&gt; 《平凡的世界》&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这本书，我本人，博主本人想和《悲惨世界》一起推&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul class=&#34;contains-task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-1803639&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-1803639&#34;&gt; 《追风筝的人》&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;“为你，千千万万遍”&lt;/strong&gt;，多少人还记得这句话。&lt;/p&gt;
+&lt;p&gt;这个善良、惭愧、自救、安心的故事，它提醒着我们这些长大的人，要去找回，要去挽救。哈桑活得勇敢坚定，&lt;strong&gt;在他的世界有着对生活真正的理解，正是因为这样，他才能活得接近完美。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul class=&#34;contains-task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-1854880&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-1854880&#34;&gt; 《月亮和六便士》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul class=&#34;contains-task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-1826548&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-1826548&#34;&gt; 《苏菲的世界》&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul class=&#34;contains-task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-6960727&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-6960727&#34;&gt; 《白岩松：行走在爱与恨之间》&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul class=&#34;contains-task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-2269315&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-2269315&#34;&gt; 《小王子》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul class=&#34;contains-task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-6957007&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-6957007&#34;&gt; 《解忧杂货店》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul class=&#34;contains-task-list&#34;&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-3803977&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-3803977&#34;&gt; 《嫌疑人X的现身》（已读）&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;ps以上内容摘自答主黛西巫巫在知乎上的回答-知乎你最庆幸读过什么书-btn&#34;&gt;P.S.以上内容摘自答主&lt;em&gt;黛西巫巫&lt;/em&gt;在知乎上的回答： &lt;a href=&#34;https://www.zhihu.com/question/62306995/answer/826819384?utm_source=wechat_session&amp;amp;utm_medium=social&amp;amp;utm_oi=1062446659849555968&#34;&gt;知乎：你最庆幸读过什么书&lt;/a&gt;{: .btn}&lt;/h5&gt;
+&lt;h4 id=&#34;如何长时间高效学习&#34;&gt;如何长时间高效学习？&lt;/h4&gt;
+&lt;h5 id=&#34;如何增加学习时间&#34;&gt;如何增加学习时间&lt;/h5&gt;
+&lt;p&gt;&lt;strong&gt;学习时间=24小时-生活必须时间-享受时间&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;生活必须时间如：吃、喝、拉、撒、睡、工作。&lt;/p&gt;
+&lt;p&gt;享受时间如：刷抖音、打游戏、煲剧等&lt;/p&gt;
+&lt;p&gt;所以，除了生活必须时间的花费外，减少一切娱乐享受时间，就可以最大程度提高可自由控制的学习时间，能做到这一点，你基本就超越99%的同龄人了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;把握生活节奏&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;记录！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;重点强调，千万不要高估自己脑袋的记忆力，我以前感觉每天都很忙，晚上回到家也很累，但仔细想想却发现没干了什么活，明明很努力却没什么收获。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这位答主的生活记录与分析&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;https://i.loli.net/2020/02/13/eRK8hxA491ykH6j.jpg&#34; alt=&#34;v2-a4f362cdd9eede8fbcf1276c7de65f60_hd.jpg&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;让我震惊的有两点：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一是，我每天可以自由支配的时间远远比我想象的要少。&lt;/p&gt;
+&lt;p&gt;二是，我每天有接近3个小时，在刷朋友圈和做一些没意义的事里浪费了，我是一个超级自律的人，但记录后还是吓一跳。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我们在生活中，经常会面临这样的事：&lt;/p&gt;
+&lt;p&gt;“再玩10分钟手机，我就睡觉！“结果12点半了还在玩手机。&lt;/p&gt;
+&lt;p&gt;周六早上起来，精神抖擞地说：“先玩一局游戏，再去努力。“结果玩到了下午。&lt;/p&gt;
+&lt;p&gt;相信我，那些堕落的人，没有一个是从一开始就想堕落的。&lt;/p&gt;
+&lt;p&gt;他们只是在生活中被许许多多的诱惑给吸引，然后因为没有办法合理控制自己的时间，就做错了选择而已。&lt;/p&gt;
+&lt;p&gt;所以，开始记录自己的时间，是成年人高效学习的第一步，千万不要偷这一点懒，连续记录一个星期，你便能开始掌控自己的时间节奏，当面临选择时，你才能做出正确的选择。&lt;/p&gt;
+&lt;p&gt;接着，你可以把每天的【娱乐享受时间】适当减少，比如你每天打4小时游戏，就先把时间控制到3个小时，这样你每天就多出1小时的学习时间，但也不要一下子把4个小时都减掉，我一直强调人不是机器，太用力的人不持久，逐步递减是最好的优化方案，第一周从4小时变到3，再变到2、1。到了1，可以留着，我们不是圣人，适当的享受也很棒呀。&lt;/p&gt;
+&lt;p&gt;然后，你可以优化减少【生活必须时间】，这是一个大工程，但这工程做好了，你每天就会再多出好几个小时。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;方式&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;先拿出一张白纸，然后把【生活必须时间】列成一个清单。&lt;/p&gt;
+&lt;p&gt;1、刷牙洗脸&lt;/p&gt;
+&lt;p&gt;2、三餐&lt;/p&gt;
+&lt;p&gt;3、通勤&lt;/p&gt;
+&lt;p&gt;4、.......&lt;/p&gt;
+&lt;p&gt;接着，思考哪个是可以减少时间花费的。&lt;/p&gt;
+&lt;p&gt;比如，你以前刷牙3分钟，那么你可以买一根电动牙刷，定时2分钟（电动牙刷花时间少而且刷得更干净），每天节省1分钟，一年就是365分钟，&lt;/p&gt;
+&lt;p&gt;再比如，你是走读的，到学校要花30分钟，那你换成住宿，一天就可以多出1个小时的学习时间，工作也一样，住公司越近优势越明显。&lt;/p&gt;
+&lt;p&gt;还有很多方法，你这么聪明，一定可以举一反三的！&lt;/p&gt;
+&lt;p&gt;大部分人，每天都至少浪费掉6个小时，把这6个小时利用好，你在普通人的眼里，就是一天拥有30小时的强者。&lt;/p&gt;
+&lt;h5 id=&#34;提高学习效率&#34;&gt;提高学习效率&lt;/h5&gt;
+&lt;p&gt;公式：&lt;strong&gt;学习效率 = 学习状态 * 学习方法&lt;/strong&gt;&lt;/p&gt;
+&lt;h6 id=&#34;有好的学习状态&#34;&gt;有好的学习状态&lt;/h6&gt;
+&lt;p&gt;一个人的状态，是很重要的，特别是「学习」这种需要不断使用智力的活动，质量通常都是碾压数量的，&lt;strong&gt;3个小时的高效专注学习，往往比6个小时的分散低效学习更有收获。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;要想有好的学习状态，你就要先明白：什么是人的精力？&lt;/p&gt;
+&lt;p&gt;简单来说，精力可以分为：&lt;/p&gt;
+&lt;p&gt;1）身体的能量（体力）&lt;/p&gt;
+&lt;p&gt;2）精神的能量（专注力）&lt;/p&gt;
+&lt;p&gt;当你拿起书本学习时，你身体的能量和精神的能量就会开始递减，直到其中一样被消耗完，你就暂时失去了学习的能力，需要去休息充电。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;要想保持充沛的体力，最重要的就是得养成一个好的身体，这是基础，没有懒可以偷，最大的捷径就是不走捷径。&lt;/strong&gt;&lt;/p&gt;
+&lt;h6 id=&#34;充分休息身体&#34;&gt;充分休息身体&lt;/h6&gt;
+&lt;p&gt;这里我非常强烈你学会番茄工作法：&lt;/p&gt;
+&lt;p&gt;“番茄工作法是由西里洛创立的相对于GTD更微观的时间管理法。&lt;/p&gt;
+&lt;p&gt;而要让你在学习时的蓝条（精神和专注力）饱满且持续，有一套很好学习启动方式：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;启动方式：&lt;em&gt;进行学习预热 ——&amp;gt; 产生仪式感 ——&amp;gt; 进入心流&lt;/em&gt;&lt;/strong&gt;*&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;1）进行学习预热：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;将每一次学习当成大型考试（大学期末考、高考），是这个方法的核心。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;大型考试时我们总会提前到达考场，并且会让自己得到充分的休息，保持最大的精力，也会把所有东西都准备好，笔、橡皮擦、草稿纸等等。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2）产生仪式感：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;《奇葩说》里胡渐彪说：“婚礼就像是爱情的迪士尼。当你在迪士尼坐上旋转木马的那一刻，当你将米妮的耳朵戴在头上的那一刻，当你和迪士尼朋友热情拥抱的那一刻，你都会有一种自己变成公主的感觉。”&lt;/p&gt;
+&lt;p&gt;学习前，你可以在心里想象，考试马上要开始了，让自己进入考试般的专注状态。&lt;/p&gt;
+&lt;p&gt;你也可以做一些事情，比如闭上眼睛，郑重且严肃地进行心理暗示：如，我要进入高效的学习状态了，我可以高效地把今天的英语单词背下来。&lt;/p&gt;
+&lt;p&gt;或者你可以把桌子上的杯子、笔袋、等摆正放在前方。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这些行为可以帮你调整心态，稳定情绪，甚至通过这些暗示，可以让你快速进入心流状态。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3）进入心流状态：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;考试的时候，遇到擅长的试卷，你是不是感觉时间过得特别快？往往感觉没多久两个小时就过去了。而平常上课听不喜欢的课，经常有这样的现象，你趴在桌上睡觉，以为过了1小时，睁开眼才发现只过了5分钟。&lt;/p&gt;
+&lt;p&gt;一种将个人精神力完全投注在某种活动上，同时感到兴奋及充实感，这就是进入了心流状态。&lt;/p&gt;
+&lt;p&gt;有了前面大量的预热和准备，那么迎接你的，自然是一次高效而充实的学习。再结合上面的番茄工作法，那么你保持长时间高效学习就是理所当然的事。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&#34;学习方法&#34;&gt;学习方法&lt;/h5&gt;
+&lt;h6 id=&#34;终极快速学习法费曼学习法&#34;&gt;&lt;strong&gt;终极快速学习法——费曼学习法&lt;/strong&gt;&lt;/h6&gt;
+&lt;p&gt;教是最好的学。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;https://i.loli.net/2020/02/13/EAh6Jcoye3LSCFd.jpg&#34; alt=&#34;费曼.jpg&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;费曼学习法最简单的实践方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;拿出一张白纸，把你想要学习理解的内容写上去。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;复述一遍白纸上的内容，然后尝试理解。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;找到一个人，把你理解的内容教给他。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;教会他，等于你完全理解了内容，如果教不会，你可以再去理解，然后继续教他，可以多次循环，直到教会他。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h6 id=&#34;记忆学习法艾宾浩斯遗忘曲线&#34;&gt;&lt;strong&gt;记忆学习法——艾宾浩斯遗忘曲线&lt;/strong&gt;&lt;/h6&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;https://i.loli.net/2020/02/13/kEY2znhd68wxbVO.jpg&#34; alt=&#34;艾宾浩斯.jpg&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;德国心理学家艾宾浩斯根据实验结果绘成的曲线 ，即著名的艾宾浩斯记忆遗忘曲线 ，图片来源百度。&lt;/p&gt;
+&lt;p&gt;看上图，我们可以发现，当你开始学习时，遗忘也立即开始了，且遗忘并不均匀，而是由快到慢。&lt;/p&gt;
+&lt;p&gt;“有人做过一个实验，两组学生学习一段课文， 甲组在学习后不复习，一天后记忆率36%，一周后只剩13%。乙组按艾宾浩斯记忆规律复习，一天后保持记忆率98%，一周后保持86%， 乙组的记忆率明显高于甲组。”&lt;/p&gt;
+&lt;p&gt;实践方法&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;打开书本，学习&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;短期复习&lt;/p&gt;
+&lt;p&gt;5分钟后复习一遍，30分钟、12小时后再复习一遍。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;长期复习&lt;/p&gt;
+&lt;p&gt;相隔1天、3天、5天、8天、15天、1 个月、3 个月后再复习一遍。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h6 id=&#34;框架学习法结构化思维&#34;&gt;&lt;strong&gt;框架学习法——结构化思维&lt;/strong&gt;&lt;/h6&gt;
+&lt;p&gt;思维&amp;gt;专注力&amp;gt;时间&amp;gt;金钱&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;举个栗子&lt;/p&gt;
+&lt;p&gt;某天，你妈叫你去超市买东西，她语速飙到了80码：&lt;/p&gt;
+&lt;p&gt;3斤猪肉、1斤葡萄、3斤羊肉、1份辣椒酱、3斤胡萝卜、3袋芝麻粉、2斤白菜、3斤牛肉、1个西瓜、5个苹果、1瓶酱油、1斤生菜。&lt;/p&gt;
+&lt;p&gt;当她讲到一半时，我相信你已经有点晕了。&lt;/p&gt;
+&lt;p&gt;别担心，看下面：&lt;/p&gt;
+&lt;p&gt;【今日到超市需要购买的物品】&lt;/p&gt;
+&lt;p&gt;1、肉类&lt;/p&gt;
+&lt;p&gt;猪肉、羊肉、牛肉各3斤。&lt;/p&gt;
+&lt;p&gt;2、水果&lt;/p&gt;
+&lt;p&gt;葡萄1斤、西瓜1个、苹果5个。&lt;/p&gt;
+&lt;p&gt;3、配料&lt;/p&gt;
+&lt;p&gt;辣椒酱、酱油各1瓶、芝麻粉3袋&lt;/p&gt;
+&lt;p&gt;4、蔬菜&lt;/p&gt;
+&lt;p&gt;生菜1斤、白菜2斤、胡萝卜3斤。&lt;/p&gt;
+&lt;p&gt;用结构化思维，把他们系统地整理好，是不是容易记多了？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;https://i.loli.net/2020/02/13/F6ibXNKrv8jaBPU.jpg&#34; alt=&#34;三点法.jpg&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;有一个很好的方法，简称为三点法：&lt;/p&gt;
+&lt;p&gt;当有人问你问题时，你先想清楚一个结论，然后再分三小点来支持这个结论&lt;/p&gt;
+&lt;p&gt;用上面这个方法，不仅能训练你的结构化思维，还能提升你的逻辑论证能力，慢慢形成自己的知识体系，你的学习效率就会大大提高。&lt;/p&gt;
+&lt;h5 id=&#34;ps以上内容摘自答主黛西巫巫在知乎上的回答-知乎如何长时间高效学习-btn&#34;&gt;P.S.以上内容摘自答主&lt;em&gt;黛西巫巫&lt;/em&gt;在知乎上的回答： &lt;a href=&#34;https://www.zhihu.com/question/28358499/answer/795882092?utm_source=wechat_session&amp;amp;utm_medium=social&amp;amp;utm_oi=1062446659849555968&#34;&gt;知乎：如何长时间高效学习&lt;/a&gt;{: .btn}&lt;/h5&gt;
+&lt;h4 id=&#34;自律&#34;&gt;自律&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;「3+6放松型自我管理法」：3种有用的自律类型+6个帮助你实现自律的方法&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&#34;有用的自律&#34;&gt;有用的自律&lt;/h5&gt;
+&lt;p&gt;3个自律类型：&lt;strong&gt;持续性、目标性、习惯性&lt;/strong&gt;&lt;/p&gt;
+&lt;h6 id=&#34;持续性的自律&#34;&gt;持续性的自律&lt;/h6&gt;
+&lt;p&gt;我们经常会立flag：”明天一定六点起床“、”背50个单词“，结果说完没两天就宣布放弃了，然而我们不知道&lt;strong&gt;间歇性的踌躇满志=持续性的混吃等死&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;能「开始」自律的人很多，但「坚持」自律的没多少。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**比不自律最可怕的，是你还沉醉在间歇性「伪自律」的假象中，享受着它带给你的自我满足。**抛开你的借口，自律的路上切勿半途而废，以免无功而返，后悔莫及。&lt;/p&gt;
+&lt;h6 id=&#34;有目标的自律&#34;&gt;有目标的自律&lt;/h6&gt;
+&lt;p&gt;有人每天准时起床吃饭睡觉，这些行为看似自律，实际过的只是如行尸走肉般的生活，因为&lt;strong&gt;他们所做的事没有明确目标，单纯地为了「过日子」，不知道为什么而活，就混吃等死。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;所以，一个失去希望梦想目标的人，不配谈自律。&lt;/p&gt;
+&lt;p&gt;赐予你力量的，是激情的驱动，而非意志力的鞭策。&lt;strong&gt;你的激情只有为目标而燃烧的时候，才能持续，有价值。&lt;/strong&gt;&lt;/p&gt;
+&lt;h6 id=&#34;习惯性的自律&#34;&gt;习惯性的自律&lt;/h6&gt;
+&lt;p&gt;只靠人的意志，很难坚持去做一件困难的事，&lt;strong&gt;自律除了要持续，还要把它培养成习惯。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;当你不需要别人的监督时，自律已经成为了你的习惯。&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&#34;如何自律&#34;&gt;如何自律？&lt;/h5&gt;
+&lt;h6 id=&#34;把诱惑挡在门外&#34;&gt;把诱惑挡在门外&lt;/h6&gt;
+&lt;p&gt;生活到处充满诱惑，有让你极度兴奋的游戏、让你大过嘴瘾的炸鸡汉堡、让你为之沉迷的金钱......每一样都能让你做事分心，轻易摧毁你的意志。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;防诱惑宝典：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;抵住诱惑，你的欲望一定要足够强烈。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;欲望就是与诱惑隔绝的一道门，你只求欲望不打开它，外界的诱惑自然进不来。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;贴上角色标签，远离诱惑。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;角色和标签时刻影响着你的行为，员工上班迟到就要扣钱，作家不写文章没有收入，学生不上课就要挨批。&lt;strong&gt;这些角色、标签逼迫着我们去自律，久而久之，原本被动的自律会变主动成为习惯。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;分析诱惑利弊，培养自制力。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h6 id=&#34;拒绝拖延&#34;&gt;拒绝拖延&lt;/h6&gt;
+&lt;p&gt;拖延是人的天性，不管是什么拖延，反正能推迟的事情绝对会放在最后一刻才去做。但往往就是这种态度、想法，让你的自律受到干扰，计划泡汤。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;闹钟响了，你睁眼把它关掉，潜意识里又睡了五分钟......闹钟又响了，你又再一次睁眼把它关掉......就这样，你和闹钟大战了三百回合。&lt;/p&gt;
+&lt;p&gt;起来后你发现7点的闹钟闹到了7：30，慌乱穿好衣柜乱翻的衣服，以军训速度完成了洗漱，此时7：45。本该8：30要到公司的你开始焦急，把杂乱的资料塞进背包，穿鞋出门，结果看到全身镜里那张丑陋的痘痘脸，于是拿起粉底、口红快速涂抹几下才勉强在8：00出了门。你快步踏着高跟鞋赶8：10的公交，路边买了包子边跑边啃，当你跑到公交站时，手表上显示8：11，你只能傻傻谴责自己。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;一个简单的起床动作，可以带来连锁反应，如若我们能提前20分钟，你的状态会完全不同。&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;闹钟响了，你起来穿好昨晚准备的衣服，慢慢整理好被子。洗漱后，你在梳妆台对着镜子化了个精致的妆容。此时7：30，你把头发扎成了辫子，背起昨晚准备好的背包穿鞋出门，看着全身镜里的自己美丽动人。你从容在肠粉店排队吃早餐，优雅地坐上8点的公交，提前5分钟到达公司，元气满满地开始一天的工作。（这个答主是女生。。）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;不拖延宝典：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;凡事提前准备。每一个环节井条有序才不会耽误时间。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;每天睡前准备好明天早上要穿的衣服、鞋子，把闹钟提前调好，等到第二天起床的时候绝不拖延。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;针对性的培养习惯。今日事今日毕&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;想到一件事就马上去做，久而久之，你的效率会有所提高。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;把握动机，注重目标反馈。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;追求目标的过程中，需要注重结果反馈。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;因为真正的自律，不是机械化地执行计划，而是根据反馈做出调整，人性化执行计划。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;你今天计划要做100个俯卧撑，但以你的体质根本撑不到50个，此时你每日的目标和计划，就要根据身体的反馈做出调整。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;弄清了行动与反馈的之间的关系，对事物的判断才更有自信。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;比如吃饭的过程是一个因果关系。你饿了，会去吃饭，吃饭给你带来了“饱”的反馈，等下次饿的时候你还是会选择吃饭。但是倘若「吃」这个动作，没有给你解决“饿”的问题，没有从中得到反馈，以后就不会再去吃饭。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;因此，生活自律的人，他们总是会根据现实反馈，不断调整自己，提高自己的生活质量。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;目标是你的方向和终点，反馈是你的眼睛，这双眼睛决定你能否走到正确的路上。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;制定计划并执行。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;计划是自律执行过程不可缺少的一部分。什么时候起床、睡觉、上班、学习都应该有明确的规划&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;“从长到短“的制定计划：（建议用铅笔手写，记在本子里）&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;如图先做三份表格，分别是&lt;strong&gt;长期、中期、短期计划表&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;**长期计划：**以年或季度为单位，比如两年出版一本书、三个月学会一门技能；&lt;/p&gt;
+&lt;p&gt;**中期计划：**每周的计划，精确到每一天的日程；&lt;/p&gt;
+&lt;p&gt;**短期计划：**列出小目标，罗列每日要做的事情，比如几点起床、几点跑步......&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;https://i.loli.net/2020/02/13/lci2z5HmkZupRyI.jpg&#34; alt=&#34;规划.jpg&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;高效执行法：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;清单奖励&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;每天睡前把计划表完成的事情打个勾，当天的事情全部做完，给自己一个奖励，比如打15分钟游戏，看一会小说。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;整理总结&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;晚上是整理总结的好时间，每晚把杂乱的电脑桌面整理一下，列个每日总结，你会觉得每天很充实。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;把你付出的结果拍照，发圈或收藏。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;心理学上叫“心理暗示”，做一些有反馈的动作，你会觉得每日的付出都有收获，自然会有更大的信心去做事。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;放弃完美主义，自律不死板。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;有些人眼中的自律就是雷打不动，遇到问题不会转变计划。比如明晚8点公司有个聚会，而时间表上的规划是明晚8点下楼散步，此时他们觉得&lt;strong&gt;参加公司聚会=打乱计划=不自律&lt;/strong&gt;的表现，放弃参加聚会。&lt;/p&gt;
+&lt;p&gt;这想法特别幼稚，他们把完美当成自己的一个标签，对事情的判断出现了偏差。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;要记住：自由不是随心所欲，而是自我主宰；想要用自律换得自由，就必须要自己掌控时间。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;“自我主宰”指的是自我掌控生活的能力，&lt;strong&gt;对事物好坏应该有一定的判断&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;很多事我们越在乎完美，越容易被现实打脸。所以，&lt;strong&gt;适当放弃你的完美主义，才是“自我主宰”能力的体现。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;自律不是死板的，它是基于实际而形成的自然习惯。本来你明天约好和朋友一起去爬山，突然接到明天要临时出差的通知，&lt;strong&gt;此时妥善解决问题的方式有以下几种：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;按重要程度排序，重要优先。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;老板要你出差见客户，是为了谈大项目，而约好朋友爬山，只是为了休闲娱乐。很明显，前者的重要程度要大得多。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;按紧急程度排序，紧急优先。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;出差时间不能改日，很可能一改大项目就谈不成了，而约好友可以改日，只要提前说明时间，对方会理解。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;看时间程度，如果有需要提早或延迟，应果断放弃原有计划。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果你原计划明天是6点起床，结果出差要求你5点起床出发去机场赶飞机，你肯定要修改原来的计划&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;8&#34;&gt;&lt;img src=&#34;https://i.loli.net/2020/02/13/URH52K3Ybnt4avN.jpg&#34; alt=&#34;优先处理.jpg&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;规律作息，养精蓄锐。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我把作息放在最后，是希望你极度重视，因为**再完美的计划表，没有精力去执行也只能是一张白纸。**晚上3点睡觉，计划表里却是6点起床、跑5公里，结果7点起来无精打采、浑身无力，这时跑5公里肯定不现实。&lt;/p&gt;
+&lt;p&gt;这就像拿没电的手机打电话，拿没水的瓶子去解渴。&lt;strong&gt;在没有精力和能量的条件下，所有精心制定的计划都是空谈，而规律的作息保证你的精力，是自律的首要保障。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;千万别跟一个熬夜的人谈自律，因为他根本做不到。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;针对懒癌患者发熬夜对策：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;时间到点，远离手机。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;装一个定时专注的软件，如果还是会不自觉拿起手机，那就把手机静音放在远离床的书桌上，关掉所有灯光，很快你会睡着&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;看书、把手机关机。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于喜欢看书的人来说，这条非常有用，因为看书会让你放松，放松的过程会随着身体的疲惫慢慢进入睡眠状态。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;把身体放空，调整心态。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;为什么熬夜几次过后会天天熬夜？那是因为大脑已经形成了潜意识，比如暗示自己不到2点不睡觉，所以，熬夜的心态异常重要。睡不着时，你可以用&lt;strong&gt;最舒适的姿势躺在床上，不要去想任何事情，让自己处于放空舒适的状态&lt;/strong&gt;，很快你的大脑潜意识会认为休息时间到了，自然而然你就入睡了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&#34;ps以上内容摘自答主黛西巫巫在知乎上的回答-知乎你是怎么变自律的-btn&#34;&gt;P.S.以上内容摘自答主&lt;em&gt;黛西巫巫&lt;/em&gt;在知乎上的回答： &lt;a href=&#34;https://www.zhihu.com/question/284206141/answer/825561875?utm_source=wechat_session&amp;amp;utm_medium=social&amp;amp;utm_oi=1062446659849555968&#34;&gt;知乎：你是怎么变自律的&lt;/a&gt;{: .btn}&lt;/h5&gt;
+&lt;h2 id=&#34;关于一些问题&#34;&gt;关于一些问题&lt;/h2&gt;
+&lt;p&gt;这里的内容均有标注来源，作者***黛西巫巫***在知乎和微信公众号，大家可以关注一下去！&lt;/p&gt;
+&lt;p&gt;另注：如需转载，请标注来源！&lt;/p&gt;
+&lt;!-- more --&gt;
+">我要自律，整理方法</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://triones7.github.io/post/fen-xiang-ji-he-hua-ban/"" data-c="
+          &lt;p&gt;第一次做软件分享😄，快乐的打击思杰马克丁😎&lt;br&gt;
+...&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h3 id=&#34;起源-beginning&#34;&gt;起源 Beginning&lt;/h3&gt;
+&lt;p&gt;今天写数学的时候，突然不想画图了，就想找U盘，又因为太懒，不想下楼拿，于是就在网上想找找几何画板的下载链接。&lt;/p&gt;
+&lt;p&gt;不找不知道，一找吓一跳(其实还真没吓一跳)，几何画板这种软件，找了3页的百度搜索结果，结果全是某马某克某丁的产品，唉。我最后翻了5，6页的度娘也没找到。我惊了。。。&lt;/p&gt;
+&lt;h2 id=&#34;重点-point&#34;&gt;重点 Point&lt;/h2&gt;
+&lt;p&gt;当然啦，重点是我有没有找到呢，当然不负所托，找到了！来自某反sjmkd组织，还有在当中找到的友情链接，不看不知道，一看吓一跳，网上居然有这么多反sjmkd的网站和个人。我当然也不能置身事外啦，今天就把几何画板贴出来，受益的是人民嘛。&lt;/p&gt;
+&lt;h5 id=&#34;ps如果您比较富有rich请支持正版&#34;&gt;P.S.如果您比较富有Rich，请支持正版！&lt;/h5&gt;
+&lt;p&gt;​		再注：请支持国外官方版本，不要支持某丁代理的垃圾！&lt;/p&gt;
+&lt;h5 id=&#34;ps这里贴出一个以上所题网站如果遇到某丁代理的不良软件请于这里下载&#34;&gt;P.S.这里贴出一个以上所题网站，如果遇到某丁代理的不良软件，请于这里下载！&lt;/h5&gt;
+&lt;p&gt;​		再注：因为此网站对某丁实在愤恨，其网址不宜在本站贴出，使用按钮转跳！&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.fxxkmakeding.xyz/&#34;&gt;马克丁代理软件下载&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;下载-download&#34;&gt;下载 Download&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;这里贴出&lt;em&gt;蓝奏云&lt;/em&gt;的下载链接&lt;/strong&gt;，博主找了一圈，实在找不到什么靠谱的网盘(城通，百度靠边站)，只能选蓝奏云了。。。&lt;/p&gt;
+&lt;p&gt;点击下载(Click and Download)：&lt;a href=&#34;https://www.lanzous.com/i98u1jc&#34;&gt;For Mac&lt;/a&gt;     &lt;a href=&#34;https://www.lanzous.com/i98u9ef&#34;&gt;For Windows&lt;/a&gt;&lt;/p&gt;
+">分享——几何画板</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://triones7.github.io/post/python-pa-chong-shi-jian/"" data-c="
+          &lt;p&gt;前几天疫情比较严重，设计了一个爬取新闻的爬虫程序，分享一下。&lt;br&gt;
+...&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;
+&lt;p&gt;主要是平常还挺喜欢澎湃新闻的，就选择爬取了澎湃新闻的主页，还可以，设置了headers之后也没有遇到什么反爬虫机制，还算和平，当然，也遇到了很多问题，我为了自己，也为了分享，将每一行代码详细的注释都写在旁边，应该有基础就可以看懂。&lt;/p&gt;
+&lt;h2 id=&#34;源代码&#34;&gt;源代码&lt;/h2&gt;
+&lt;p&gt;废话不多说，直接贴代码。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# -*-coding:utf-8-*-
+
+from bs4 import BeautifulSoup#导入bs4模块，用BeautifulSoup分析网页
+import requests#导入requests模块，用于向服务器发送请求
+import os#导入os模块，用于文件处理(未系统学习，参照慎用)
+import re#导入re模块，实现正则表达式的使用
+import webbrowser#导入webbrowser模块，用于使用用户的默认浏览器打开网页
+import time#导入time模块，用于实现程序延迟
+import sys#导入sys模块，用于实现程序重启(重启程序楼主在网上找的，也不知道具体用法)
+
+def url_open(url):#使用定义函数
+	headers = {}#创建Headers,用于模拟浏览器发送请求
+	headers[&amp;quot;Accept&amp;quot;] = &amp;quot;image/webp,image/apng,image/*,*/*;q=0.8&amp;quot;
+	headers[&amp;quot;Accept-Encoding&amp;quot;] = &amp;quot;gzip, deflate, br&amp;quot;
+	headers[&amp;quot;Accept-Language&amp;quot;] = &amp;quot;zh-CN,zh;q=0.9&amp;quot;
+	headers[&amp;quot;User-Agent&amp;quot;] = &amp;quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36&amp;quot;
+	response = requests.get(url, headers=headers)#用requests模块下的get命令，请求服务器，同时发送headers以模拟浏览器
+	response.encoding = &amp;quot;utf-8&amp;quot;#将从服务器获取到的内容转化为utf-8编码
+
+	html = response.text#使用text命令将二进制编码转换为文本
+
+	return html#函数输出命令，输出html
+
+def restart_program():
+	print(&amp;quot;restart program&amp;quot;)
+	python = sys.executable #获取当前执行python 
+	os.execl(python, python, *sys.argv)  #执行命令
+
+print(&amp;quot;本程序使用爬虫爬取，新闻内容来自澎湃新闻。\n&amp;quot;)
+time.sleep(1)
+print(&amp;quot;本程序读取新闻时会爬取来源，如需转载请注明来源！\n&amp;quot;)
+time.sleep(1)
+print(&amp;quot;感谢使用本程序，本程序由北斗工作室开发，如需转载或引用，请标注来源！\n\n\n&amp;quot;)
+time.sleep(2)
+
+print(&amp;quot;以下是爬取的热点前20新闻：\n&amp;quot;)
+time.sleep(1)
+
+base_url = &amp;quot;https://www.thepaper.cn/&amp;quot;#设定主链接变量
+
+web = url_open(base_url)#引用自己编写的函数模块，获取网页html
+
+soup = BeautifulSoup(web, features=&#39;lxml&#39;)#使用bs4中的BeautifulSoup解析网页，引用lxml格式的解析器
+all_h2 = soup.find_all(&#39;h2&#39;)#找到所有带h2标签的html语言，即澎湃新闻官网的大新闻标题
+
+all_title = []#创建一个新的list
+for each_h2 in all_h2:#使用for in循环，逐个去除每一个h2标签下的语言，获得标题
+	title = each_h2.get_text()#对每一个标签用Get_text命令获取文本
+	all_title.append(title)#将获取到的标题添加到All_title中
+
+price = [x.strip() for x in all_title if x.strip() != &#39;&#39;]#引用自网友的命令，去除all_title里的所有换行符
+
+links = re.findall(r&amp;quot;newsDetail_forward_\d{7}&amp;quot;, str(all_h2))#使用正则表达式获取所有标题对应的链接，并返回一个list，注意！正则表达式要求一个str格式！
+
+for m in range(20):#创建一个20次的循环，输出20条新闻
+	this_title = price[m]#输出price(去除过换行符后的list)的第m项
+	this_link = links[m]#输出links里的第m项
+	n = m + 1#创建n,用于标注序号，因为range是从0开始，所以m+1表示序号
+	print (n, this_title + &amp;quot;\n&amp;quot;)#输出新闻标题 + 链接
+	time.sleep(1)
+
+choice = input(&amp;quot;请输入您感兴趣的新闻序号：&amp;quot;)#请求输入，获得用户所需新闻
+num = int(choice) - 1#将输入的str转化为int并进行-1使之转化为list的索引序号
+news_link = links[num]#用输入的结果生成的索引，在links这个list里索引对应的网址
+news_url = base_url + news_link#将索引到的网址与澎湃官网的base url合并，生成完整的地址
+
+time.sleep(1)
+print(&amp;quot;1 使用默认浏览器访问新闻网页\n&amp;quot;)
+time.sleep(1)
+print(&amp;quot;2 爬取新闻内容并展示\n\n&amp;quot;)#打印出选项，让用户选择进行新闻访问/直接爬取新闻
+time.sleep(1)
+
+choice2 = input(&amp;quot;请输入数字选择：&amp;quot;)#使用input函数获取用户选择
+a = int(choice2)#将获得的选择转化为int形式，便于使用if else进行比较
+
+if a == 1:#引入if条件判断，判断用户选择是多少
+	webbrowser.open(news_url)#使用webbrowser模块，唤起默认浏览器，打开页面
+elif a == 2:#再用elif判断
+	html2 = url_open(news_url)#用自己定义的url_open函数获得news_url的页面
+	soup2 = BeautifulSoup(html2, features=&#39;lxml&#39;)#使用BeautifulSoup解析新闻页面
+	title2 = soup2.find(&#39;h1&#39;)#找到h1标题
+	laiyuan = soup2.find(&#39;div&#39;, {&amp;quot;class&amp;quot;:&amp;quot;news_about&amp;quot;})#找到class标签为news_about的div标签
+	time2 = laiyuan.find_all(&#39;p&#39;)#找到div标签下的p标签
+	v = []#创建一个空的list——v
+	for z in time2:#for in 函数输出
+		u = z.get_text()#用get_text()命令获得文本
+		v.append(u)#将获得的文本添加进v这个list中
+	price2 = [y.strip() for y in v if y.strip() != &#39;&#39;]#引用自网友的命令，去除all_title里的所有换行符
+	news_text = soup2.find(&#39;div&#39;, {&amp;quot;class&amp;quot;:&amp;quot;news_txt&amp;quot;})#找到网页所有的div标签下class = news_txt的标签
+	news_list_dealt = news_text.get_text()#使用get_text命令获得新闻正文
+	news_list = list(news_list_dealt)#将新闻正文转化为list
+	for i in range(29):#循环29次，用于去除澎湃下载下来自带的广告(字符正好是29个)
+		news_list.pop()#使用pop指令去除正文list中的最后一项
+	news_str = &amp;quot;&amp;quot;.join(news_list)#引自网友，将list合并为string
+	print (&amp;quot;\n\n标题：&amp;quot; + title2.get_text() + &amp;quot;\n\n来源&amp;amp;时间：&amp;quot; + price2[0] + &amp;quot;\n&amp;quot; + price2[1] + &amp;quot;\n\n正文：&amp;quot; + news_str)#输出标题，来源，正文
+else:
+	print(&amp;quot;请按要求输入文本！&amp;quot;)#使用else判断出用户输入其他字符
+	time.sleep(1)
+	print(&amp;quot;程序即将重启！请重新选择！&amp;quot;)#告诉用户即将重启
+	restart_program()#通过重启模块实现重新选择，偷懒。。。。
+
+print (&amp;quot;\n请选择:\n&amp;quot;)
+time.sleep(1)
+print(&amp;quot;1 选择另一条新闻\n&amp;quot;)
+time.sleep(1)
+print(&amp;quot;2 退出程序\n&amp;quot;)
+time.sleep(1)
+print(&amp;quot;3 关于\n&amp;quot;)
+time.sleep(1)
+print(&amp;quot;4 在默认浏览器里浏览该新闻\n&amp;quot;)
+
+choice3 = input(&amp;quot;\n请输入数字选项：&amp;quot;)#获得用户选择
+b = int(choice3)#将用户的结果转化为整数形式！很重要！input获得的结果是string
+
+if b == 1:#继续判断
+	restart_program()#通过重启程序让用户选择另一条新闻，又偷懒。。
+elif b == 2:
+	print(&amp;quot;感谢使用本程序，欢迎下次使用！&amp;quot;)
+	time.sleep(2)#使用time函数，实现程序延迟2秒
+	print(&amp;quot;再见，本程序将在3秒后自动退出！&amp;quot;)
+	count = 0#从本行到第98行，实现倒计时并倒数
+	b = 3
+	while (int(count) &amp;lt; int(b)):
+		ncount = int(b) - int(count) 
+		print (ncount)
+		time.sleep(1)
+		count += 1 
+elif b == 3:
+	print(&amp;quot;本程序由北斗工作室开发！\n&amp;quot;)
+	time.sleep(1)#使用time函数，实现程序延迟1秒
+	print(&amp;quot;Triones Studio .Inc\n&amp;quot;)
+	time.sleep(1)#使用time函数，实现程序延迟1秒
+	print(&amp;quot;如需搬运，请标注来源！谢谢！\n&amp;quot;)
+	time.sleep(1)#使用time函数，实现程序延迟1秒
+	print(&amp;quot;本程序作者学习来自莫烦python,主页：https://morvanzhou.github.io/&amp;quot;)
+	time.sleep(1)#使用time函数，实现程序延迟1秒
+	print(&amp;quot;本程序引用的重启函数，来自博客园网站某博主，感谢！&amp;quot;)
+	time.sleep(1)#使用time函数，实现程序延迟1秒
+	print(&amp;quot;程序即将重启！请重新选择！&amp;quot;)
+	restart_program()#通过重启模块实现重新选择，偷懒。。。。
+elif b == 4:
+	webbrowser.open(news_url)#使用webbrowser模块，唤起默认浏览器，打开页面
+	print (&amp;quot;\n请选择:\n&amp;quot;)
+	time.sleep(1)
+	print(&amp;quot;1 选择另一条新闻\n&amp;quot;)
+	time.sleep(1)
+	print(&amp;quot;2 退出程序\n&amp;quot;)
+	time.sleep(1)
+	print(&amp;quot;3 关于\n&amp;quot;)
+	choice3 = input(&amp;quot;\n请输入数字选项：&amp;quot;)#获得用户选择
+	c = int(choice3)#将用户的结果转化为整数形式！很重要！input获得的结果是string
+
+	if c == 1:#继续判断
+		restart_program()#通过重启程序让用户选择另一条新闻，又偷懒。。
+	elif c == 2:
+		print(&amp;quot;感谢使用本程序，欢迎下次使用！&amp;quot;)
+		time.sleep(2)#使用time函数，实现程序延迟2秒
+		print(&amp;quot;再见，本程序将在3秒后自动退出！&amp;quot;)
+		count = 0#从本行到第98行，实现倒计时并倒数
+		c = 3
+		while (int(count) &amp;lt; int(c)):
+			ncount = int(c) - int(count) 
+			print (ncount)
+			time.sleep(1)
+			count += 1 
+	elif c == 3:
+		print(&amp;quot;本程序由北斗工作室开发！\n&amp;quot;)
+		time.sleep(1)#使用time函数，实现程序延迟1秒
+		print(&amp;quot;Triones Studio .Inc\n&amp;quot;)
+		time.sleep(1)#使用time函数，实现程序延迟1秒
+		print(&amp;quot;如需搬运，请标注来源！谢谢！\n&amp;quot;)
+		time.sleep(1)#使用time函数，实现程序延迟1秒
+		print(&amp;quot;本程序作者学习来自莫烦python,主页：https://morvanzhou.github.io/&amp;quot;)
+		time.sleep(1)#使用time函数，实现程序延迟1秒
+		print(&amp;quot;本程序引用的重启函数，来自博客园网站某博主，感谢！&amp;quot;)
+		time.sleep(1)#使用time函数，实现程序延迟1秒
+		print(&amp;quot;程序即将重启！请重新选择！&amp;quot;)
+		restart_program()#通过重启模块实现重新选择，偷懒。。。。
+	else:
+		print(&amp;quot;请输入数字1/2/3！谢谢！&amp;quot;)
+		time.sleep(1)
+		print(&amp;quot;程序即将重启！请重新选择！&amp;quot;)
+		restart_program()#通过重启模块实现重新选择，偷懒。。。。
+else:
+	print(&amp;quot;请输入数字1/2/3！谢谢！&amp;quot;)
+	time.sleep(1)
+	print(&amp;quot;程序即将重启！请重新选择！&amp;quot;)
+	restart_program()#通过重启模块实现重新选择，偷懒。。。。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;下载区&#34;&gt;下载区&lt;/h4&gt;
+&lt;p&gt;源代码解释的应该还是挺详细的，这里贴一下下载地址：&lt;a href=&#34;https://github.com/Triones7/Triones-Studio/raw/master/%E6%96%B0%E9%97%BB%E7%88%AC%E5%8F%96%E6%BA%90%E4%BB%A3%E7%A0%81.py&#34;&gt;点我下载&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;最后&#34;&gt;最后&lt;/h2&gt;
+&lt;p&gt;如果有任何疑问，或对代码有任何改进，欢迎&lt;a href=&#34;https://triones7.github.io/contact/&#34;&gt;联系我&lt;/a&gt;&lt;/p&gt;
+&lt;h5 id=&#34;ps&#34;&gt;P.S.&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;本文件纯属博主自己编写&lt;/li&gt;
+&lt;li&gt;如有雷同，纯属巧合&lt;/li&gt;
+&lt;li&gt;所有新闻软件输出时均&lt;strong&gt;标注来源&lt;/strong&gt;，博主不负法律责任&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;如需转载，请注明来源！&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;本网站享有&lt;strong&gt;最终解释权&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+">Python爬虫实践</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://triones7.github.io/post/about/"" data-c="
+          &lt;blockquote&gt;
+&lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！👋&lt;br&gt;
+让我们先了解一下吧！🤝&lt;br&gt;
+...&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;关于本站&#34;&gt;🏠 关于本站&lt;/h2&gt;
+&lt;p&gt;Ethan的博客，由北斗工作室开发，用于展示想法。&lt;br&gt;
+这就是一个个人博客，主要用途有以下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用于分享一些软件&lt;/li&gt;
+&lt;li&gt;写一些软件的体验报告&lt;/li&gt;
+&lt;li&gt;抒发情感&lt;/li&gt;
+&lt;li&gt;记录日记&lt;/li&gt;
+&lt;li&gt;分享时事&lt;/li&gt;
+&lt;li&gt;分享看法&lt;/li&gt;
+&lt;li&gt;个人主页&lt;/li&gt;
+&lt;li&gt;文件存储与下载&lt;br&gt;
+……..&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;博主是谁&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;
+&lt;p&gt;北斗，小白程序猿/网站博主（对，没错，就是这个网站）/up主（B站）……..&lt;br&gt;
+（同时是一位在被数学逼疯边缘的高中生&lt;/p&gt;
+&lt;h2 id=&#34;兴趣爱好&#34;&gt;⛹ 兴趣爱好&lt;/h2&gt;
+&lt;p&gt;很广泛？&lt;/p&gt;
+&lt;h2 id=&#34;联系我呀&#34;&gt;📬 联系我呀&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;mailto:wujiaweiethan@homtail.com&#34;&gt;发邮件给我&lt;/a&gt;&lt;/p&gt;
+">关于</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://triones7.github.io/post/hello-gridea/"" data-c="
+          &lt;p&gt;👏  欢迎使用 &lt;strong&gt;Gridea&lt;/strong&gt; ！&lt;br&gt;
+✍️  &lt;strong&gt;Gridea&lt;/strong&gt; 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/getgridea/gridea&#34;&gt;Github&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://gridea.dev/&#34;&gt;Gridea 主页&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://fehey.com/&#34;&gt;示例网站&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;特性&#34;&gt;特性👇&lt;/h2&gt;
+&lt;p&gt;📝  你可以使用最酷的 &lt;strong&gt;Markdown&lt;/strong&gt; 语法，进行快速创作&lt;/p&gt;
+&lt;p&gt;🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片&lt;/p&gt;
+&lt;p&gt;🏷️  你可以对文章进行标签分组&lt;/p&gt;
+&lt;p&gt;📋  你可以自定义菜单，甚至可以创建外部链接菜单&lt;/p&gt;
+&lt;p&gt;💻  你可以在 &lt;strong&gt;Windows&lt;/strong&gt;，&lt;strong&gt;MacOS&lt;/strong&gt; 或 &lt;strong&gt;Linux&lt;/strong&gt; 设备上使用此客户端&lt;/p&gt;
+&lt;p&gt;🌎  你可以使用 &lt;strong&gt;𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌&lt;/strong&gt; 或 &lt;strong&gt;Coding Pages&lt;/strong&gt; 向世界展示，未来将支持更多平台&lt;/p&gt;
+&lt;p&gt;💬  你可以进行简单的配置，接入 &lt;a href=&#34;https://github.com/gitalk/gitalk&#34;&gt;Gitalk&lt;/a&gt; 或 &lt;a href=&#34;https://github.com/SukkaW/DisqusJS&#34;&gt;DisqusJS&lt;/a&gt; 评论系统&lt;/p&gt;
+&lt;p&gt;🇬🇧  你可以使用&lt;strong&gt;中文简体&lt;/strong&gt;或&lt;strong&gt;英语&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力&lt;/p&gt;
+&lt;p&gt;🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步&lt;/p&gt;
+&lt;p&gt;🌱 当然 &lt;strong&gt;Gridea&lt;/strong&gt; 还很年轻，有很多不足，但请相信，它会不停向前 🏃&lt;/p&gt;
+&lt;p&gt;未来，它一定会成为你离不开的伙伴&lt;/p&gt;
+&lt;p&gt;尽情发挥你的才华吧！&lt;/p&gt;
+&lt;p&gt;😘 Enjoy~&lt;/p&gt;
+">Hello Gridea</a>
+      </div>
+      
+    </div>
+    <div class="page">
+      <div id="page_ul"></div>
+    </div>
+  </div>
+</div>
+<script>
+  !function () {
+    let searchMask = document.querySelector('#search_mask');
+    let result = document.querySelector('#result');
+    let items = document.querySelectorAll('.item');
+    let searchBox = document.querySelector('#search');
+    let statCount = document.querySelector('#stat_count');
+    let statTimes = document.querySelector('#stat_times');
+    let pageUl = document.querySelector('#page_ul');
+    let close = document.querySelector('#close');
+    
+    close.addEventListener('click', function() {
+      searchMask.style = 'display: none;'
+    })
+
+    let finds = [];
+    let contents = [];
+    let pageSize = 10;
+    items.forEach(item => {
+      let a = item.querySelector('a');
+      contents.push({
+        title: a.innerText,
+        details: a.dataset.c,
+        link: a.href
+      })
+      item.remove();
+    })
+
+    function insertStr(soure, start, count) {
+      let newStr = soure.substr(start, count);
+      return soure.slice(0, start) + '<em>' + newStr + '</em>' + soure.slice(start + count);
+    }
+
+    pageUl.addEventListener('click', function(event) {
+      let target = event.target;
+      if (target.__proto__ === HTMLSpanElement.prototype) {
+        appendResults(parseInt(target.dataset.i));
+      }
+    })
+
+    function appendResults(index) {
+      let htmlResult = '';
+      let start = index || 0;
+      let end = Math.min(start + pageSize, finds.length);
+      for (let i = start; i < end; i++) {
+        const current = finds[i];
+        let html = current.title;
+        let sum = 0;
+        let positions = current.positions;
+        positions.forEach(position => {
+          html = insertStr(html, position.start + sum, position.count);
+          sum += 9;
+        })
+        htmlResult += `<div class="item"><a class="result-title" href="${current.link}">${html}</a></div>`;
+      }
+      result.innerHTML = htmlResult;
+      pageUl.innerHTML = '';
+      let count = finds.length / pageSize;
+      let lis = '';
+      if (start !== 0) {
+        lis += `<span class="fa fa-angle-left" data-i='${start - 1}'></span>`;
+      }
+      for (let i = 0; i < count; i++) {
+        lis += `<span class='${i === start?'current':''}' data-i='${i}'>${i+1}</span>`;     
+      }
+      if (start+1 < count) {
+        lis += `<span class="fa fa-angle-right" data-i='${start+1}'></span>`;  
+      }
+      pageUl.innerHTML = lis;
+    }
+
+    function search(delay) {
+      let timer = null
+      return function () {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          let start = Date.now();
+          let segments = searchBox.value.split(' ').filter(c => c != '');
+          if (segments.length <= 0) {
+            return;
+          }
+          finds = [];
+          let htmlResult = '';
+          contents.forEach(content => {
+            let title = content.title;
+            let positions = [];
+            let find = false;
+            segments.forEach((segment) => {
+              if (content.title.includes(segment)) {
+                find = true;
+                positions.push({
+                  start: content.title.indexOf(segment),
+                  count: segment.length
+                })
+              } else if (content.details.includes(segment)) {
+                find = true;
+              }
+            });
+            if (find) {
+              finds.push({
+                title: content.title,
+                link: content.link,
+                positions
+              });
+            }
+          })
+          appendResults(0);
+          statCount.textContent = finds.length;
+          statTimes.textContent = Date.now() - start;
+        }, delay)
+      }
+    }
+    searchBox.addEventListener('input', search(200));
+  }()
+</script>
+
+<input hidden id="copy" />
+<script>
+  !function () {
+    let times = document.querySelectorAll('.publish-time');
+    for (let i = 0; i < times.length; i++) {
+      let date = times[i].dataset.t;
+      let time = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
+      if (time < 60) {
+        str = time + '秒之前';
+      } else if (time < 3600) {
+        str = Math.floor(time / 60) + '分钟之前';
+      } else if (time >= 3600 && time < 86400) {
+        str = Math.floor(time / 3600) + '小时之前';
+      } else if (time >= 86400 && time < 259200) {
+        str = Math.floor(time / 86400) + '天之前';
+      } else {
+        str = times[i].textContent;
+      }
+      times[i].textContent = str;
+    }
+  }();
+</script>
+
+<script>
+  let language = '';
+  if (language !== '') {
+    let map = new Map();
+    if (language === 'en') {
+      map.set('search', 'Search');
+      map.set('category', 'Categories');
+      map.set('article', 'Articles');
+      map.set('tag', 'Tags');
+      map.set('top', 'Top');
+      map.set('publish', 'published');
+      map.set('minute', ' minutes');
+      map.set('read-more', 'Read More');
+      map.set('view', 'View');
+      map.set('words', ' words');
+      map.set('category-in', 'category in');
+      map.set('preview', 'Meta');
+      map.set('index', 'Toc');
+      map.set('no-archives', "You haven't created yet");
+      map.set('archives', " articles in total");
+      map.set('cloud-tags', " tags in total");
+      map.set('copyright', "Copyright: ");
+      map.set('author', "Author: ");
+      map.set('link', "Link: ");
+      map.set('leave-message', "Leave a message");
+      map.set('format', "Links Format");
+      map.set('site-name', "Name: ");
+      map.set('site-link', "Link: ");
+      map.set('site-desc', "Desc: ");
+      map.set('stat', " related results, taking ");
+      map.set('stat-time', " ms");
+      map.set('site-img', "Image: ");
+    }
+
+    if (map.size > 0) {
+      let lanElems = document.querySelectorAll('.language');
+      lanElems.forEach(elem => {
+        let lan = elem.dataset.lan, text = map.get(lan);
+        if (elem.__proto__ === HTMLInputElement.prototype) {
+          elem.placeholder = text
+        } else {
+          if (elem.dataset.count) {
+            text = elem.dataset.count + text;
+          }
+          elem.textContent = text;
+        }
+      })
+    }
+  }
+  //拿来主义(真香)^_^，Clipboard 实现摘自掘金 https://juejin.im/post/5aefeb6e6fb9a07aa43c20af
+  window.Clipboard = (function (window, document, navigator) {
+    var textArea,
+      copy;
+
+    // 判断是不是ios端
+    function isOS() {
+      return navigator.userAgent.match(/ipad|iphone/i);
+    }
+    //创建文本元素
+    function createTextArea(text) {
+      textArea = document.createElement('textArea');
+      textArea.value = text;
+      textArea.style.width = 0;
+      textArea.style.height = 0;
+      textArea.clientHeight = 0;
+      textArea.clientWidth = 0;
+      document.body.appendChild(textArea);
+    }
+    //选择内容
+    function selectText() {
+      var range,
+        selection;
+
+      if (isOS()) {
+        range = document.createRange();
+        range.selectNodeContents(textArea);
+        selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        textArea.setSelectionRange(0, 999999);
+      } else {
+        textArea.select();
+      }
+    }
+
+    //复制到剪贴板
+    function copyToClipboard() {
+      try {
+        document.execCommand("Copy")
+      } catch (err) {
+        alert("复制错误！请手动复制！")
+      }
+      document.body.removeChild(textArea);
+    }
+
+    copy = function (text) {
+      createTextArea(text);
+      selectText();
+      copyToClipboard();
+    };
+
+    return {
+      copy: copy
+    };
+  })(window, document, navigator);
+
+  function copyCode(e) {
+    if (e.srcElement.tagName === 'SPAN' && e.srcElement.classList.contains('copy-code')) {
+      let code = e.currentTarget.querySelector('code');
+      var text = code.innerText;
+      if (e.srcElement.textContent === '复制成功') {
+        return;
+      }
+      e.srcElement.textContent = '复制成功';
+      (function (elem) {
+        setTimeout(() => {
+          if (elem.textContent === '复制成功') {
+            elem.textContent = '复制代码'
+          }
+        }, 1000);
+      })(e.srcElement)
+      Clipboard.copy(text);
+    }
+  }
+
+  let pres = document.querySelectorAll('pre');
+  pres.forEach(pre => {
+    let code = pre.querySelector('code');
+    let copyElem = document.createElement('span');
+    copyElem.classList.add('copy-code');
+    copyElem.textContent = '复制代码';
+    pre.appendChild(copyElem);
+    pre.onclick = copyCode
+  })
+
+</script>
+<script src="/media/js/motion.js"></script>
+
+
+
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+<script type="text/javascript" src="/media/js/mouse/fireworks.js"></script>
+
+
+<script src="/media/js/cool.js"></script>
+
+
+
+
 </html>
