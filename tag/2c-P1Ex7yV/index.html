@@ -9,7 +9,7 @@
 <meta name="description" content="记录、想法、生活">
 <meta name="theme-color" content="#000">
 <title>Ethan Wu&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1615106806543">
+<link rel="shortcut icon" href="/favicon.ico?v=1615107697101">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -206,7 +206,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-count">6</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -326,6 +326,10 @@
           <small class="language" data-lan="tag">标签</small>
         </h2>
       </div>
+      
+      
+      
+      
       
       
       
@@ -1181,6 +1185,275 @@
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://triones7.github.io/post/zheng-ze-biao-da-shi-jiao-cheng/"" data-c="
+          &lt;p&gt;翻腾了下以前学python时的正则表达式教程，主要是GoldenDict的全文检索要用到，就在这里贴出来了。&lt;br&gt;
+感谢 莫烦mofan Python教程，陪伴我走过了一小段自学之路。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;作者: &lt;strong&gt;莫烦&lt;/strong&gt; 编辑: &lt;strong&gt;莫烦&lt;/strong&gt; &lt;strong&gt;2017-11-29&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;学习资料:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/MorvanZhou/tutorials/blob/master/basic/36_RegEx.py&#34;&gt;本节全部代码&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/MorvanZhou/tutorials/blob/master/basic/36_regex.ipynb&#34;&gt;代码的 notebook 形式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mofanpy.com/tutorials/data-manipulation/scraping/&#34;&gt;网页爬虫教程&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;正则表达式 (Regular Expression) 又称 RegEx, 是用来匹配字符的一种工具. 在一大串字符中寻找你需要的内容. 它常被用在很多方面, 比如网页爬虫, 文稿整理, 数据筛选等等. 最简单的一个例子, 比如我需要爬取网页中每一页的标题. 而网页中的标题常常是这种形式.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;title&amp;gt;我是标题&amp;lt;/ title&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;而且每个网页的标题各不相同, 我就能使用正则表达式, 用一种简单的匹配方法, 一次性选取出成千上万网页的标题信息. 正则表达式绝对不是一天就能学会和记住的, 因为表达式里面的内容非常多, 强烈建议, 现在这个阶段, 你只需要了解正则里都有些什么, 不用记住, 等到你真正需要用到它的时候, 再反过头来, 好好琢磨琢磨, 那个时候才是你需要训练自己记住这些表达式的时候.&lt;/p&gt;
+&lt;h2 id=&#34;简单的匹配&#34;&gt;简单的匹配&lt;/h2&gt;
+&lt;p&gt;正则表达式无非就是在做这么一回事. 在文字中找到特定的内容, 比如下面的内容. 我们在 dog runs to cat 这句话中寻找是否存在 cat 或者 bird.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# matching string
+pattern1 = &amp;quot;cat&amp;quot;
+pattern2 = &amp;quot;bird&amp;quot;
+string = &amp;quot;dog runs to cat&amp;quot;
+print(pattern1 in string)    # True
+print(pattern2 in string)    # False
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;但是正则表达式绝非不止这样简单的匹配, 它还能做更加高级的内容. 要使用正则表达式, 首先需要调用一个 python 的内置模块 &lt;code&gt;re&lt;/code&gt;. 然后我们重复上面的步骤, 不过这次使用正则. 可以看出, 如果 &lt;code&gt;re.search()&lt;/code&gt; 找到了结果, 它会返回一个 match 的 object. 如果没有匹配到, 它会返回 None. 这个 &lt;code&gt;re.search()&lt;/code&gt; 只是 &lt;code&gt;re&lt;/code&gt; 中的一个功能, 之后会介绍其它的功能.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+# regular expression
+pattern1 = &amp;quot;cat&amp;quot;
+pattern2 = &amp;quot;bird&amp;quot;
+string = &amp;quot;dog runs to cat&amp;quot;
+print(re.search(pattern1, string))  # &amp;lt;_sre.SRE_Match object; span=(12, 15), match=&#39;cat&#39;&amp;gt;
+print(re.search(pattern2, string))  # None
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;灵活匹配&#34;&gt;灵活匹配&lt;/h2&gt;
+&lt;p&gt;除了上面的简单匹配, 下面的内容才是正则的核心内容, 使用特殊的 pattern 来灵活匹配需要找的文字.&lt;/p&gt;
+&lt;p&gt;如果需要找到潜在的多个可能性文字, 我们可以使用 &lt;code&gt;[]&lt;/code&gt; 将可能的字符囊括进来. 比如 &lt;code&gt;[ab]&lt;/code&gt; 就说明我想要找的字符可以是 &lt;code&gt;a&lt;/code&gt; 也可以是 &lt;code&gt;b&lt;/code&gt;. 这里我们还需要注意的是, 建立一个正则的规则, 我们在 pattern 的 &amp;quot;前面需要加上一个 &lt;code&gt;r&lt;/code&gt; 用来表示这是正则表达式, 而不是普通字符串. 通过下面这种形式, 如果字符串中出现run或者是ran&amp;quot;, 它都能找到.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# multiple patterns (&amp;quot;run&amp;quot; or &amp;quot;ran&amp;quot;)
+ptn = r&amp;quot;r[au]n&amp;quot;       # start with &amp;quot;r&amp;quot; means raw string
+print(re.search(ptn, &amp;quot;dog runs to cat&amp;quot;))    # &amp;lt;_sre.SRE_Match object; span=(4, 7), match=&#39;run&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;同样, 中括号 &lt;code&gt;[]&lt;/code&gt; 中还可以是以下这些或者是这些的组合. 比如 &lt;code&gt;[A-Z]&lt;/code&gt; 表示的就是所有大写的英文字母. &lt;code&gt;[0-9a-z]&lt;/code&gt; 表示可以是数字也可以是任何小写字母.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(re.search(r&amp;quot;r[A-Z]n&amp;quot;, &amp;quot;dog runs to cat&amp;quot;))     # None
+print(re.search(r&amp;quot;r[a-z]n&amp;quot;, &amp;quot;dog runs to cat&amp;quot;))     # &amp;lt;_sre.SRE_Match object; span=(4, 7), match=&#39;run&#39;&amp;gt;
+print(re.search(r&amp;quot;r[0-9]n&amp;quot;, &amp;quot;dog r2ns to cat&amp;quot;))     # &amp;lt;_sre.SRE_Match object; span=(4, 7), match=&#39;r2n&#39;&amp;gt;
+print(re.search(r&amp;quot;r[0-9a-z]n&amp;quot;, &amp;quot;dog runs to cat&amp;quot;))  # &amp;lt;_sre.SRE_Match object; span=(4, 7), match=&#39;run&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;按类型匹配&#34;&gt;按类型匹配&lt;/h2&gt;
+&lt;p&gt;除了自己定义规则, 还有很多匹配的规则时提前就给你定义好了的. 下面有一些特殊的匹配类型给大家先总结一下, 然后再上一些例子.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\d : 任何数字&lt;/li&gt;
+&lt;li&gt;\D : 不是数字&lt;/li&gt;
+&lt;li&gt;\s : 任何 white space, 如 [\t\n\r\f\v]&lt;/li&gt;
+&lt;li&gt;\S : 不是 white space&lt;/li&gt;
+&lt;li&gt;\w : 任何大小写字母, 数字和 _ [a-zA-Z0-9_]&lt;/li&gt;
+&lt;li&gt;\W : 不是 \w&lt;/li&gt;
+&lt;li&gt;\b : 空白字符 (&lt;strong&gt;只&lt;/strong&gt;在某个字的开头或结尾)&lt;/li&gt;
+&lt;li&gt;\B : 空白字符 (&lt;strong&gt;不&lt;/strong&gt;在某个字的开头或结尾)&lt;/li&gt;
+&lt;li&gt;\ : 匹配 \&lt;/li&gt;
+&lt;li&gt;. : 匹配任何字符 (除了 \n)&lt;/li&gt;
+&lt;li&gt;^ : 匹配开头&lt;/li&gt;
+&lt;li&gt;$ : 匹配结尾&lt;/li&gt;
+&lt;li&gt;? : 前面的字符可有可无&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下面就是具体的举例说明啦.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# \d : decimal digit
+print(re.search(r&amp;quot;r\dn&amp;quot;, &amp;quot;run r4n&amp;quot;))           # &amp;lt;_sre.SRE_Match object; span=(4, 7), match=&#39;r4n&#39;&amp;gt;
+# \D : any non-decimal digit
+print(re.search(r&amp;quot;r\Dn&amp;quot;, &amp;quot;run r4n&amp;quot;))           # &amp;lt;_sre.SRE_Match object; span=(0, 3), match=&#39;run&#39;&amp;gt;
+# \s : any white space [\t\n\r\f\v]
+print(re.search(r&amp;quot;r\sn&amp;quot;, &amp;quot;r\nn r4n&amp;quot;))          # &amp;lt;_sre.SRE_Match object; span=(0, 3), match=&#39;r\nn&#39;&amp;gt;
+# \S : opposite to \s, any non-white space
+print(re.search(r&amp;quot;r\Sn&amp;quot;, &amp;quot;r\nn r4n&amp;quot;))          # &amp;lt;_sre.SRE_Match object; span=(4, 7), match=&#39;r4n&#39;&amp;gt;
+# \w : [a-zA-Z0-9_]
+print(re.search(r&amp;quot;r\wn&amp;quot;, &amp;quot;r\nn r4n&amp;quot;))          # &amp;lt;_sre.SRE_Match object; span=(4, 7), match=&#39;r4n&#39;&amp;gt;
+# \W : opposite to \w
+print(re.search(r&amp;quot;r\Wn&amp;quot;, &amp;quot;r\nn r4n&amp;quot;))          # &amp;lt;_sre.SRE_Match object; span=(0, 3), match=&#39;r\nn&#39;&amp;gt;
+# \b : empty string (only at the start or end of the word)
+print(re.search(r&amp;quot;\bruns\b&amp;quot;, &amp;quot;dog runs to cat&amp;quot;))    # &amp;lt;_sre.SRE_Match object; span=(4, 8), match=&#39;runs&#39;&amp;gt;
+# \B : empty string (but not at the start or end of a word)
+print(re.search(r&amp;quot;\B runs \B&amp;quot;, &amp;quot;dog   runs  to cat&amp;quot;))  # &amp;lt;_sre.SRE_Match object; span=(8, 14), match=&#39; runs &#39;&amp;gt;
+# \\ : match \
+print(re.search(r&amp;quot;runs\\&amp;quot;, &amp;quot;runs\ to me&amp;quot;))     # &amp;lt;_sre.SRE_Match object; span=(0, 5), match=&#39;runs\\&#39;&amp;gt;
+# . : match anything (except \n)
+print(re.search(r&amp;quot;r.n&amp;quot;, &amp;quot;r[ns to me&amp;quot;))         # &amp;lt;_sre.SRE_Match object; span=(0, 3), match=&#39;r[n&#39;&amp;gt;
+# ^ : match line beginning
+print(re.search(r&amp;quot;^dog&amp;quot;, &amp;quot;dog runs to cat&amp;quot;))   # &amp;lt;_sre.SRE_Match object; span=(0, 3), match=&#39;dog&#39;&amp;gt;
+# $ : match line ending
+print(re.search(r&amp;quot;cat$&amp;quot;, &amp;quot;dog runs to cat&amp;quot;))   # &amp;lt;_sre.SRE_Match object; span=(12, 15), match=&#39;cat&#39;&amp;gt;
+# ? : may or may not occur
+print(re.search(r&amp;quot;Mon(day)?&amp;quot;, &amp;quot;Monday&amp;quot;))       # &amp;lt;_sre.SRE_Match object; span=(0, 6), match=&#39;Monday&#39;&amp;gt;
+print(re.search(r&amp;quot;Mon(day)?&amp;quot;, &amp;quot;Mon&amp;quot;))          # &amp;lt;_sre.SRE_Match object; span=(0, 3), match=&#39;Mon&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果一个字符串有很多行, 我们想使用 &lt;code&gt;^&lt;/code&gt; 形式来匹配行开头的字符, 如果用通常的形式是不成功的. 比如下面的 I 出现在第二行开头, 但是使用 &lt;code&gt;r&amp;quot;^I&amp;quot;&lt;/code&gt; 却匹配不到第二行, 这时候, 我们要使用 另外一个参数, 让 &lt;code&gt;re.search()&lt;/code&gt; 可以对每一行单独处理. 这个参数就是 &lt;code&gt;flags=re.M&lt;/code&gt;, 或者这样写也行 &lt;code&gt;flags=re.MULTILINE&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;string = &amp;quot;&amp;quot;&amp;quot;
+dog runs to cat.
+I run to dog.
+&amp;quot;&amp;quot;&amp;quot;
+print(re.search(r&amp;quot;^I&amp;quot;, string))                 # None
+print(re.search(r&amp;quot;^I&amp;quot;, string, flags=re.M))     # &amp;lt;_sre.SRE_Match object; span=(18, 19), match=&#39;I&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;重复匹配&#34;&gt;重复匹配&lt;/h2&gt;
+&lt;p&gt;如果我们想让某个规律被重复使用, 在正则里面也是可以实现的, 而且实现的方式还有很多. 具体可以分为这三种:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;*&lt;/code&gt; : 重复零次或多次&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;+&lt;/code&gt; : 重复一次或多次&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{n, m}&lt;/code&gt; : 重复 n 至 m 次&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{n}&lt;/code&gt; : 重复 n 次&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;举例如下:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# * : occur 0 or more times
+print(re.search(r&amp;quot;ab*&amp;quot;, &amp;quot;a&amp;quot;))             # &amp;lt;_sre.SRE_Match object; span=(0, 1), match=&#39;a&#39;&amp;gt;
+print(re.search(r&amp;quot;ab*&amp;quot;, &amp;quot;abbbbb&amp;quot;))        # &amp;lt;_sre.SRE_Match object; span=(0, 6), match=&#39;abbbbb&#39;&amp;gt;
+
+# + : occur 1 or more times
+print(re.search(r&amp;quot;ab+&amp;quot;, &amp;quot;a&amp;quot;))             # None
+print(re.search(r&amp;quot;ab+&amp;quot;, &amp;quot;abbbbb&amp;quot;))        # &amp;lt;_sre.SRE_Match object; span=(0, 6), match=&#39;abbbbb&#39;&amp;gt;
+
+# {n, m} : occur n to m times
+print(re.search(r&amp;quot;ab{2,10}&amp;quot;, &amp;quot;a&amp;quot;))        # None
+print(re.search(r&amp;quot;ab{2,10}&amp;quot;, &amp;quot;abbbbb&amp;quot;))   # &amp;lt;_sre.SRE_Match object; span=(0, 6), match=&#39;abbbbb&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;分组&#34;&gt;分组&lt;/h2&gt;
+&lt;p&gt;我们甚至可以为找到的内容分组, 使用 &lt;code&gt;()&lt;/code&gt; 能轻松实现这件事. 通过分组, 我们能轻松定位所找到的内容. 比如在这个 &lt;code&gt;(\d+)&lt;/code&gt; 组里, 需要找到的是一些数字, 在 &lt;code&gt;(.+)&lt;/code&gt; 这个组里, 我们会找到 Date: 后面的所有内容. 当使用 &lt;code&gt;match.group()&lt;/code&gt; 时, 他会返回所有组里的内容, 而如果给 &lt;code&gt;.group(2)&lt;/code&gt; 里加一个数, 它就能定位你需要返回哪个组里的信息.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;match = re.search(r&amp;quot;(\d+), Date: (.+)&amp;quot;, &amp;quot;ID: 021523, Date: Feb/12/2017&amp;quot;)
+print(match.group())                   # 021523, Date: Feb/12/2017
+print(match.group(1))                  # 021523
+print(match.group(2))                  # Date: Feb/12/2017
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;有时候, 组会很多, 光用数字可能比较难找到自己想要的组, 这时候, 如果有一个名字当做索引, 会是一件很容易的事. 我们字需要在括号的开头写上这样的形式 &lt;code&gt;?P&amp;lt;名字&amp;gt;&lt;/code&gt; 就给这个组定义了一个名字. 然后就能用这个名字找到这个组的内容.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;match = re.search(r&amp;quot;(?P&amp;lt;id&amp;gt;\d+), Date: (?P&amp;lt;date&amp;gt;.+)&amp;quot;, &amp;quot;ID: 021523, Date: Feb/12/2017&amp;quot;)
+print(match.group(&#39;id&#39;))                # 021523
+print(match.group(&#39;date&#39;))              # Date: Feb/12/2017
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;findall&#34;&gt;findall&lt;/h2&gt;
+&lt;p&gt;前面我们说的都是只找到了最开始匹配上的一项而已, 如果需要找到全部的匹配项, 我们可以使用 &lt;code&gt;findall&lt;/code&gt; 功能. 然后返回一个列表. 注意下面还有一个新的知识点, &lt;code&gt;|&lt;/code&gt; 是 or 的意思, 要不是前者要不是后者.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# findall
+print(re.findall(r&amp;quot;r[ua]n&amp;quot;, &amp;quot;run ran ren&amp;quot;))    # [&#39;run&#39;, &#39;ran&#39;]
+
+# | : or
+print(re.findall(r&amp;quot;(run|ran)&amp;quot;, &amp;quot;run ran ren&amp;quot;)) # [&#39;run&#39;, &#39;ran&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;replace&#34;&gt;replace&lt;/h2&gt;
+&lt;p&gt;我们还能通过正则表达式匹配上一些形式的字符串然后再替代掉这些字符串. 使用这种匹配 &lt;code&gt;re.sub()&lt;/code&gt;, 将会比 python 自带的 &lt;code&gt;string.replace()&lt;/code&gt; 要灵活多变.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(re.sub(r&amp;quot;r[au]ns&amp;quot;, &amp;quot;catches&amp;quot;, &amp;quot;dog runs to cat&amp;quot;))     # dog catches to cat
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;split&#34;&gt;split&lt;/h2&gt;
+&lt;p&gt;再来我们 Python 中有个字符串的分割功能, 比如想获取一句话中所有的单词. 比如 &lt;code&gt;&amp;quot;a is b&amp;quot;.split(&amp;quot; &amp;quot;)&lt;/code&gt;, 这样它就会产生一个列表来保存所有单词. 但是在正则中, 这种普通的分割也可以做的淋漓精致.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(re.split(r&amp;quot;[,;\.]&amp;quot;, &amp;quot;a;b,c.d;e&amp;quot;))             # [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;compile&#34;&gt;compile&lt;/h2&gt;
+&lt;p&gt;最后, 我们还能使用 compile 过后的正则, 来对这个正则重复使用. 先将正则 compile 进一个变量, 比如 &lt;code&gt;compiled_re&lt;/code&gt;, 然后直接使用这个 &lt;code&gt;compiled_re&lt;/code&gt; 来搜索.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;compiled_re = re.compile(r&amp;quot;r[ua]n&amp;quot;)
+print(compiled_re.search(&amp;quot;dog ran to cat&amp;quot;))  # &amp;lt;_sre.SRE_Match object; span=(4, 7), match=&#39;ran&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;小抄&#34;&gt;小抄&lt;/h2&gt;
+&lt;p&gt;为了大家方便记忆, 我很久以前在网上找到了一份小抄, 这个小抄的原出处应该是&lt;a href=&#34;https://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html&#34;&gt;这里&lt;/a&gt;. 小抄很有用, 不记得的时候回头方便看.&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;a href=&#34;https://mofanpy.com/static/results/basic/13-10-01.png&#34;&gt;&lt;img src=&#34;https://mofanpy.com/static/results-small/basic/13-10-01.png&#34; alt=&#34;13-10-01.png&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/figure&gt;
+">正则表达式教程</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://triones7.github.io/post/shu-xue-xue-xi/"" data-c="
+          &lt;p&gt;作为一名高中生，我的数学已经在炸裂边缘徘徊了。找了点资料，算是共勉吧！希望可以提升提升&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;一-刷题误区&#34;&gt;一. 刷题误区&lt;/h2&gt;
+&lt;h3 id=&#34;1-痴迷套卷无法自拔&#34;&gt;1. 痴迷套卷，无法自拔&lt;/h3&gt;
+&lt;h4 id=&#34;误区&#34;&gt;误区&lt;/h4&gt;
+&lt;p&gt;做套卷要把不同试卷上的同一类型的题放在同一维度去思考，要有很强的提炼和总结规律的能力。如果不能就&lt;strong&gt;老老实实做专题，集中力量来搞重点突破&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;相似的东西放在一起，才方便总结规律&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;方法&#34;&gt;方法&lt;/h4&gt;
+&lt;p&gt;做专题。资料选择：&lt;strong&gt;认清现实，有的放矢&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;拿出5张模拟卷（正儿八经考过的，自己做的不算）+3张高考卷，分析每个题型、每个知识板块的得分情况。最终的效果是，摸清楚自己哪块知识的题得分很稳，哪些题从来没得过分，哪些题的得分忽高忽低。&lt;strong&gt;分数忽高忽低的部分就是你可以短期突破的东西&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-一往无前从不复盘&#34;&gt;2. 一往无前，从不复盘&lt;/h3&gt;
+&lt;h4 id=&#34;方法-2&#34;&gt;方法&lt;/h4&gt;
+&lt;p&gt;复盘周期：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;当晚—周末—月末—大型考试前&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;短期&lt;/strong&gt;：回顾整体思路，尤其是咱们卡壳的地方，一定要把逻辑梳理清楚。可以不演算&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;长期&lt;/strong&gt;：老老实实重新做一遍，要完整地把答案算出来！之后&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#39;color:red;&#39;&gt;&lt;strong&gt;把题目的条件抽离出来，找出各个条件和答案之间的对应关系。再从答案回溯到题目条件，思考这道题的甚至这类题的要点是什么&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;相似的东西放在一起才好总结规律&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style=&#39;color:red;&#39;&gt;复盘方法要和专题训练结合在一起，效果是真滴没话说&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;最理想的情况是，你能抽象出一般的规律（脑子乱就写，写不清楚就画，画思维导图）。下次不管遇到什么题，万变不离其宗，题目条件的指向心里一清二楚。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;二-数学考试常识&#34;&gt;二. 数学考试常识&lt;/h2&gt;
+&lt;h3 id=&#34;1-没有一个条件是废话&#34;&gt;1. 没有一个条件是废话&lt;/h3&gt;
+&lt;p&gt;高考场上，每个题目条件都对解题有帮助。99%不会加一个没用的东西碍眼睛，出题人没那么不讲道理。&lt;/p&gt;
+&lt;p&gt;这个客观事实的存在，指出了一个非常明确的努力方向——&lt;strong&gt;学会翻译题目条件，分析题目条件的逻辑指向&lt;/strong&gt;，也就是上面讲复盘的时候提到的第二点。&lt;/p&gt;
+&lt;h3 id=&#34;2-考试要有节奏&#34;&gt;2. 考试要有节奏&lt;/h3&gt;
+&lt;h4 id=&#34;心理预设&#34;&gt;心理预设&lt;/h4&gt;
+&lt;p&gt;不管试卷的难度如何，你都得简单地做个心理预设：&lt;em&gt;“一般做小题需要*分钟，如果卷子很难，我最多花*分钟在小题上，不然后面的时间会特别紧张。”&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;每次考试前都得重复一次，别小看心理暗示的作用，它牛皮得很(๑• . •๑)&lt;/p&gt;
+&lt;h4 id=&#34;粗心错误&#34;&gt;粗心错误&lt;/h4&gt;
+&lt;p&gt;平时做题时，不妨把每张试卷、每次作业的粗心情况记录在笔记本上，搞清楚咱们经常在哪个题型、哪个知识模块、哪个运算步骤出错&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;那么到了考试，做这部分题时，就把节奏刻意放慢&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;吃一堑长一智，小心驶得万年船，悠着点总没错&lt;/p&gt;
+&lt;h2 id=&#34;三-错题本&#34;&gt;三. 错题本&lt;/h2&gt;
+&lt;h3 id=&#34;1-错题分类&#34;&gt;1. 错题分类&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span style=&#39;color:green;&#39;&gt;&lt;strong&gt;粗心错的&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span style=&#39;color:green;&#39;&gt;&lt;strong&gt;知识点遗忘的&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span style=&#39;color:red;&#39;&gt;&lt;strong&gt;做到一半卡住的&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span style=&#39;color:red;&#39;&gt;&lt;strong&gt;完全不会的&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;第一种和第二种就省点力气吧。如果把这两种题都写在错题本上，有那个时间还不如抽自己一下呢，直接有效，还更长记性。&lt;/p&gt;
+&lt;p&gt;第三种就注意了，这类题基本都得往错题本上搬，尤其卡壳的地方得重点标记&lt;/p&gt;
+&lt;p&gt;第四种，首先咱们得搞明白，这道题是不是真不会。如果看完答案后，能知道个七七八八，嗯那应该还能再抢救一下&lt;/p&gt;
+&lt;p&gt;但如果看答案都超级累，甚至看不懂，放弃吧，不然你努力的性价比可就太低辽。&lt;strong&gt;人活在世，何必为难自己&lt;/strong&gt;๑乛◡乛๑&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;2-题目整理&#34;&gt;2. 题目整理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;精简题干，只留下最核心的部分&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在写题干的过程中，迅速把这道题的思路回忆一遍&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;写答案&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;别照抄，效率太低，太简单的步骤直接写两个字：易得。但你得确定自己下次看也能反应过来。&lt;/p&gt;
+&lt;p&gt;卡壳的部分重新做，把答案扔开，尽可能自己把后面的步骤完成。这样你的答案才有灵魂&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;及时复盘&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;三-课堂&#34;&gt;三. 课堂&lt;/h2&gt;
+&lt;p&gt;老师讲题共以下两类&lt;/p&gt;
+&lt;h3 id=&#34;1-会的题&#34;&gt;1. 会的题&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;抓紧老师念题目或者画图的几十秒，在脑海里，&lt;strong&gt;重现咱们当时做题的思路&lt;/strong&gt;，想想做题的情境，把前前后后的逻辑给整明白。既强化了理解，又加深了印象。&lt;/p&gt;
+&lt;p&gt;之后如果老师讲的和咱们想的不太一样，两种思路存在冲击，也能让你思考得更！深！刻！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;速度再搞快点&lt;/strong&gt;，在老师讲关键步骤前，把题目重新演算一次都来得及。毕竟做过嘛，连数字都熟悉，计算出正确答案肯定ok的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;做自己的辅导书 or 看错题本&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;但重点是——&lt;strong&gt;不能随心所欲！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;目标感要明确一点，&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果老师在讲立体几何，咱们就（看）做立体几何的（错）题；讲圆锥曲线，就（看）做圆锥曲线。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;相似的东西堆在一起，才方便总结规律&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果课堂上没办法完全集中注意力做题，不妨看错题本，顺手就再算算，反正时间不能浪费&lt;/p&gt;
+&lt;p&gt;如果老师在讲试卷，就从试卷袋里翻出以前的卷子，分析分析错题，看自己哪里进步了哪里退步了，找找做试卷的感觉&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;尽可能和大家处在同一根进度条上，咱们只是在学习深度上用一丢丢功夫&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果课堂上没办法完全集中注意力做题，不妨看错题本，顺手就再算算，反正时间不能浪费&lt;/p&gt;
+&lt;p&gt;如果老师在讲试卷，就从试卷袋里翻出以前的卷子，分析分析错题，看自己哪里进步了哪里退步了，找找做试卷的感觉&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;尽可能和大家处在同一根进度条上，咱们只是在学习深度上用一丢丢功夫&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-不会的题&#34;&gt;2. 不会的题&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;我们得走在前面，掌握主动权&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果这道题你真不会，就&lt;strong&gt;趁讲课的间隙&lt;/strong&gt;，悄悄地把这道题的逻辑重新梳理一遍，&lt;strong&gt;想清楚自己卡壳的点在哪&lt;/strong&gt;，老师讲的时候就重点听这一部分&lt;/p&gt;
+&lt;p&gt;只要你觉得老师已经把关键的东西讲明白了，这道题的思路豁然开朗了，&lt;strong&gt;争取跑在老师的前面草稿纸上算出答案来&lt;/strong&gt;&lt;/p&gt;
+">数学学习</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://triones7.github.io/post/liu-yan-ban/"" data-c="
           &lt;p&gt;专用于留言&lt;/p&gt;
 ">留言板</a>
@@ -1300,25 +1573,25 @@
 &lt;ol&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-6495145&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-6495145&#34;&gt; 《上帝掷骰子吗——量子物理史话》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-9903631&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-9903631&#34;&gt; 《上帝掷骰子吗——量子物理史话》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-7012980&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-7012980&#34;&gt; 《万历十五年》&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-5326747&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-5326747&#34;&gt; 《万历十五年》&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;万历皇帝、海瑞、戚继光......这些在历史课本中的角色，在《万历十五年》中，变成一个个非常鲜活的人物，在书中我仿佛&lt;strong&gt;亲临他们的处境、情欲、苦恼、梦想......&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;一本《万历十五年》，远胜10本普通的历史故事书，我不仅了解了文化政治制度的症结，人心被制度的扭曲，更学习了一种大视野看问题的思维。&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-4044747&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-4044747&#34;&gt; 《白夜行》（慎看）&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-4995938&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-4995938&#34;&gt; 《白夜行》（慎看）&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;甩出一句书中金句：世上有两样东西不可直视，一是太阳，二是人心。&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-6050398&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-6050398&#34;&gt; 《非暴力沟通》&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-3218622&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-3218622&#34;&gt; 《非暴力沟通》&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;人的幸福程度，取决于你和周围人的相处程度&lt;/strong&gt;。而沟通，又决定了相处的和谐程度。&lt;/p&gt;
 &lt;p&gt;人是情绪动物，情绪是一个人的底层操作系统。生活里，言语上的指责、嘲讽、说教、拒不回应等错误沟通方式，给我们带来的情感创伤，甚至比肉体的伤害，更加令人痛苦。&lt;/p&gt;
@@ -1328,7 +1601,7 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-2275610&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-2275610&#34;&gt; 《原则》&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-4130835&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-4130835&#34;&gt; 《原则》&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;《原则》的内容不是一般的&lt;strong&gt;丰富&lt;/strong&gt;，看完你绝对会被它的**“全面”**所折服。&lt;/p&gt;
 &lt;p&gt;书里有一段话让我印象深刻：**梦想+现实+决心=成功的生活。**成功的人，对现实背后的因果关系有着深刻的理解，并善于利用「原则」实现自己的愿望。&lt;/p&gt;
@@ -1336,45 +1609,45 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-7193067&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-7193067&#34;&gt; 《平凡的世界》&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-2560117&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-2560117&#34;&gt; 《平凡的世界》&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;这本书，我本人，博主本人想和《悲惨世界》一起推&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-7381955&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-7381955&#34;&gt; 《追风筝的人》&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-5197454&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-5197454&#34;&gt; 《追风筝的人》&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;“为你，千千万万遍”&lt;/strong&gt;，多少人还记得这句话。&lt;/p&gt;
 &lt;p&gt;这个善良、惭愧、自救、安心的故事，它提醒着我们这些长大的人，要去找回，要去挽救。哈桑活得勇敢坚定，&lt;strong&gt;在他的世界有着对生活真正的理解，正是因为这样，他才能活得接近完美。&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-8947257&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-8947257&#34;&gt; 《月亮和六便士》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-2034237&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-2034237&#34;&gt; 《月亮和六便士》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-635248&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-635248&#34;&gt; 《苏菲的世界》&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-9604838&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-9604838&#34;&gt; 《苏菲的世界》&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-2803012&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-2803012&#34;&gt; 《白岩松：行走在爱与恨之间》&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-8082876&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-8082876&#34;&gt; 《白岩松：行走在爱与恨之间》&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-8860985&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-8860985&#34;&gt; 《小王子》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-8054557&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-8054557&#34;&gt; 《小王子》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-8746524&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-8746524&#34;&gt; 《解忧杂货店》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-4023837&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-4023837&#34;&gt; 《解忧杂货店》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-3616937&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-3616937&#34;&gt; 《嫌疑人X的现身》（已读）&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-5978605&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-5978605&#34;&gt; 《嫌疑人X的现身》（已读）&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;

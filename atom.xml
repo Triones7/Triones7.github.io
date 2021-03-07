@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://triones7.github.io</id>
     <title>Ethan Wu&apos;s Blog</title>
-    <updated>2021-03-07T08:46:50.352Z</updated>
+    <updated>2021-03-07T09:01:47.659Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://triones7.github.io"/>
     <link rel="self" href="https://triones7.github.io/atom.xml"/>
@@ -10,6 +10,30 @@
     <logo>https://triones7.github.io/images/avatar.png</logo>
     <icon>https://triones7.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Ethan Wu&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[正则表达式教程]]></title>
+        <id>https://triones7.github.io/post/zheng-ze-biao-da-shi-jiao-cheng/</id>
+        <link href="https://triones7.github.io/post/zheng-ze-biao-da-shi-jiao-cheng/">
+        </link>
+        <updated>2021-03-07T08:59:36.000Z</updated>
+        <summary type="html"><![CDATA[<p>翻腾了下以前学python时的正则表达式教程，主要是GoldenDict的全文检索要用到，就在这里贴出来了。<br>
+感谢 莫烦mofan Python教程，陪伴我走过了一小段自学之路。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>翻腾了下以前学python时的正则表达式教程，主要是GoldenDict的全文检索要用到，就在这里贴出来了。<br>
+感谢 莫烦mofan Python教程，陪伴我走过了一小段自学之路。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[数学学习]]></title>
+        <id>https://triones7.github.io/post/shu-xue-xue-xi/</id>
+        <link href="https://triones7.github.io/post/shu-xue-xue-xi/">
+        </link>
+        <updated>2021-03-07T08:54:47.000Z</updated>
+        <summary type="html"><![CDATA[<p>作为一名高中生，我的数学已经在炸裂边缘徘徊了。找了点资料，算是共勉吧！希望可以提升提升</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>作为一名高中生，我的数学已经在炸裂边缘徘徊了。找了点资料，算是共勉吧！希望可以提升提升</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[我要自律，整理方法]]></title>
         <id>https://triones7.github.io/post/wo-yao-zi-lu-zheng-li-fang-fa/</id>
