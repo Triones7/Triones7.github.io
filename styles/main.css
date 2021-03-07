@@ -2200,15 +2200,15 @@ p > code {
     }.box-shadow-wrapper {
       box-shadow: none !important;
     }body {
-      cursor: url('/media/curs/pointer.cur.cur'), default;
+      cursor: url('/media/curs/normal.cur'), default;
     }a {
-      cursor: url('/media/curs/pin.cur.cur'), pointer !important;
+      cursor: url('/media/curs/link.cur'), pointer !important;
     }input, textarea, code {
-      cursor: url('/media/curs/text.cur.cur'), text !important;
+      cursor: url('/media/curs/normal.cur'), text !important;
     }code > span.copy-code {
-      cursor: url('/media/curs/handwriting.cur.cur'), text !important;
+      cursor: url('/media/curs/Copy.cur'), text !important;
     }.post img {
-      cursor: url('/media/curs/unavailiable.cur.cur'), zoom-in !important;
+      cursor: url('/media/curs/big.cur'), zoom-in !important;
     }.post img {
-      cursor: url('/media/curs/move.cur.cur'), zoom-out !important;
+      cursor: url('/media/curs/small.cur'), zoom-out !important;
     }
