@@ -9,7 +9,7 @@
 <meta name="description" content="记录、想法、生活">
 <meta name="theme-color" content="#000">
 <title>Ethan Wu&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1615101473817">
+<link rel="shortcut icon" href="/favicon.ico?v=1615101868119">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -970,60 +970,25 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
   <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
   <div class="aplayer" id="aplayer"></div>
-  <script>
-  let musics = JSON.parse('[]');
-  let mediaMusic = [];
-  for (let i = 0; i < musics.length; i++) {
-    let item = musics[i];
-    mediaMusic.push({
-      name: item.musicName,
-      artist: item.author,
-      url: item.musicLink,
-      lrc: item.lrc,
-      cover: item.cover
-    });
-  }
-
-  const ap = new APlayer({
-      container: document.getElementById('aplayer'),
-      fixed: true,
-      lrcType: 3,
-      listFolded: false,
-      listMaxHeight: 90,
-      audio: mediaMusic
-  });
-  window.addEventListener('load', function() {
-    let postBody = document.querySelector('#post_body');
-    let hs = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-    postBody && hs.forEach(h => {
-      let helems = postBody.querySelectorAll(h);
-      if (helems.length > 0) {
-        helems.forEach(elem => {
-          elem.id = encodeURI(elem.id);
-        })
-      }
-    })
-  })
-  </script>
 
     <!-- require MetingJS -->
-  <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
-  </head>
-  <body>
-    <meting-js
-      server="tencent"
-      type="playlist"
-      id="2021315773"
-      fixed="true"
-      autoplay="true"
-      loop="all"
-      order="random"
-      preload="auto"
-      list-folded="ture"
-      list-max-height="200px"
-      lrc-type="1">
-    </meting-js>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+    </head>
+    <body>
+      <meting-js
+        server="tencent"
+        type="playlist"
+        id="2021315773"
+        fixed="true"
+        autoplay="true"
+        loop="all"
+        order="random"
+        preload="auto"
+        list-folded="ture"
+        list-max-height="200px"
+        lrc-type="1">
+      </meting-js>
+    </body>
 
 
 
@@ -1341,25 +1306,25 @@
 &lt;ol&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-6100100&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-6100100&#34;&gt; 《上帝掷骰子吗——量子物理史话》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-6882461&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-6882461&#34;&gt; 《上帝掷骰子吗——量子物理史话》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-885215&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-885215&#34;&gt; 《万历十五年》&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-4078921&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-4078921&#34;&gt; 《万历十五年》&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;万历皇帝、海瑞、戚继光......这些在历史课本中的角色，在《万历十五年》中，变成一个个非常鲜活的人物，在书中我仿佛&lt;strong&gt;亲临他们的处境、情欲、苦恼、梦想......&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;一本《万历十五年》，远胜10本普通的历史故事书，我不仅了解了文化政治制度的症结，人心被制度的扭曲，更学习了一种大视野看问题的思维。&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-354480&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-354480&#34;&gt; 《白夜行》（慎看）&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-4735925&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-4735925&#34;&gt; 《白夜行》（慎看）&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;甩出一句书中金句：世上有两样东西不可直视，一是太阳，二是人心。&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-6294577&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-6294577&#34;&gt; 《非暴力沟通》&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-2001611&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-2001611&#34;&gt; 《非暴力沟通》&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;人的幸福程度，取决于你和周围人的相处程度&lt;/strong&gt;。而沟通，又决定了相处的和谐程度。&lt;/p&gt;
 &lt;p&gt;人是情绪动物，情绪是一个人的底层操作系统。生活里，言语上的指责、嘲讽、说教、拒不回应等错误沟通方式，给我们带来的情感创伤，甚至比肉体的伤害，更加令人痛苦。&lt;/p&gt;
@@ -1369,7 +1334,7 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-2791639&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-2791639&#34;&gt; 《原则》&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-8255122&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-8255122&#34;&gt; 《原则》&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;《原则》的内容不是一般的&lt;strong&gt;丰富&lt;/strong&gt;，看完你绝对会被它的**“全面”**所折服。&lt;/p&gt;
 &lt;p&gt;书里有一段话让我印象深刻：**梦想+现实+决心=成功的生活。**成功的人，对现实背后的因果关系有着深刻的理解，并善于利用「原则」实现自己的愿望。&lt;/p&gt;
@@ -1377,45 +1342,45 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-6521240&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-6521240&#34;&gt; 《平凡的世界》&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-6012147&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-6012147&#34;&gt; 《平凡的世界》&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;这本书，我本人，博主本人想和《悲惨世界》一起推&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-8619950&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-8619950&#34;&gt; 《追风筝的人》&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-9640438&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-9640438&#34;&gt; 《追风筝的人》&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;“为你，千千万万遍”&lt;/strong&gt;，多少人还记得这句话。&lt;/p&gt;
 &lt;p&gt;这个善良、惭愧、自救、安心的故事，它提醒着我们这些长大的人，要去找回，要去挽救。哈桑活得勇敢坚定，&lt;strong&gt;在他的世界有着对生活真正的理解，正是因为这样，他才能活得接近完美。&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-233773&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-233773&#34;&gt; 《月亮和六便士》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-7368293&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-7368293&#34;&gt; 《月亮和六便士》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-5769846&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-5769846&#34;&gt; 《苏菲的世界》&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-6229760&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-6229760&#34;&gt; 《苏菲的世界》&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-6429050&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-6429050&#34;&gt; 《白岩松：行走在爱与恨之间》&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-4861741&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-4861741&#34;&gt; 《白岩松：行走在爱与恨之间》&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-8942025&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-8942025&#34;&gt; 《小王子》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-9676629&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-9676629&#34;&gt; 《小王子》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-5276750&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-5276750&#34;&gt; 《解忧杂货店》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-4261171&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-4261171&#34;&gt; 《解忧杂货店》（已读）【强推】&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-888691&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-888691&#34;&gt; 《嫌疑人X的现身》（已读）&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-9184855&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-9184855&#34;&gt; 《嫌疑人X的现身》（已读）&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -1945,7 +1910,7 @@ else:
 		&lt;script src=&#34;https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js&#34;&gt;&lt;/script&gt;
 	&lt;/head&gt;
 	&lt;body&gt;
-		&lt;meting-js server=&#34;netease&#34; type=&#34;playlist&#34; id=&#34;536622304&#34;&gt;&lt;/meting-js&gt;
+		&lt;meting-js server=&#34;netease&#34; type=&#34;song&#34; id=&#34;536622304&#34; autoplay=&#34;true&#34;&gt;&lt;/meting-js&gt;
 	&lt;/body&gt;
 &lt;/html&gt;
 &lt;blockquote&gt;
